@@ -55,8 +55,9 @@ public class PlayerMove : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal"); 
         float v = Input.GetAxisRaw("Vertical");
         
-        Vector2 speed = new Vector2(h, v);
+        Vector2 direction = new Vector2(h, v).normalized;
         KeyCode accelerationKey = KeyCode.None;
+        Vector2 speed = direction * SpeedScalar;
         speed = _accelate(speed, out KeyCode key);
 
         if (_timer >= 0.1f)
@@ -71,8 +72,6 @@ public class PlayerMove : MonoBehaviour
     
     private Vector2 _accelate(Vector2 speed, out KeyCode key)
     {
-        Vector2 normalizedSpeed = (speed * SpeedScalar).normalized;
-        
         _currentAcceleration = 1f;
         key = KeyCode.None;
         if (Input.GetKey(KeyCode.E))
@@ -86,7 +85,7 @@ public class PlayerMove : MonoBehaviour
             _currentAcceleration = 1f / Acceleration;
         }
         
-        Vector2 acceleratedSpeed = normalizedSpeed * _currentAcceleration;
+        Vector2 acceleratedSpeed = speed * _currentAcceleration;
         return acceleratedSpeed;
     }
     
