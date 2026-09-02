@@ -4,6 +4,9 @@ public class PlayerMove : MonoBehaviour
 {
     // require field
     public float Speed;
+    public float Acceleration;
+    
+    private float _currentAcceleration;
     
     // 목적 : 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다
     // Update는 매 프레임마다 실행 -> 초당 프레임 실행은 별도 설정이 없는 경우 성능 내에서 가능한 밚이
@@ -26,7 +29,16 @@ public class PlayerMove : MonoBehaviour
         //3. 방향과 속도에 따라 이동한다. //매직 넘버란 : 보는 사람에 따라 의미가 달라질 수 있는 숫자(즉, 헷갈릴 수 있는)
         // 대각선 방향 크기가 더 크기 때문에 보간
         Vector2 normalizedSpeed = (direction * Speed).normalized; // 벡터 길이를 1로 만들어주는 것
-        transform.Translate(normalizedSpeed * Time.deltaTime);
+        _currentAcceleration = 1f;
+        if (Input.GetKey(KeyCode.E))
+        {
+            _currentAcceleration = Acceleration;
+        }
+        else if (Input.GetKey(KeyCode.Q))
+        {
+            _currentAcceleration = 1f / Acceleration;
+        }
+        transform.Translate(normalizedSpeed * _currentAcceleration * Time.deltaTime);
         // deltaTime : 이전 프레임으로부터 현재 프레임까지 시간이 얼마나 지났는가를 MS 단위로 반환
         
         // 새로운 위치 = 현재 위치 + 속도(방향 * 크기) * 시간
