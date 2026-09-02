@@ -45,12 +45,12 @@ public class PlayerMove : MonoBehaviour
         if (!_replaying)
         {
             _timer +=  Time.deltaTime;
-            Vector2 speed = _getSpeed();
+            Vector2 speed = GetSpeed();
             _move(speed);
         }
     }
 
-    private Vector2 _getSpeed()
+    private Vector2 GetSpeed()
     {
         float h = Input.GetAxisRaw("Horizontal"); 
         float v = Input.GetAxisRaw("Vertical");
@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
         Vector2 direction = new Vector2(h, v).normalized;
         KeyCode accelerationKey = KeyCode.None;
         Vector2 speed = direction * SpeedScalar;
-        speed = _accelate(speed, out KeyCode key);
+        speed = Accelate(speed, out KeyCode key);
 
         if (_timer >= 0.1f)
         {
@@ -70,7 +70,7 @@ public class PlayerMove : MonoBehaviour
         return speed;
     }
     
-    private Vector2 _accelate(Vector2 speed, out KeyCode key)
+    private Vector2 Accelate(Vector2 speed, out KeyCode key)
     {
         _currentAcceleration = 1f;
         key = KeyCode.None;
