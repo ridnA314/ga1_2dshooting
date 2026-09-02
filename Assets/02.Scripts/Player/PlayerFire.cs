@@ -10,7 +10,7 @@ public class PlayerFire : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject bullet = Instantiate(BulletPrefab);
-            bullet.transform.position = this.transform.position;
+            bullet.transform.position = FirePoint.position;
         }
     }
 }
