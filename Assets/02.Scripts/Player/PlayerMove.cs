@@ -8,6 +8,26 @@ public class PlayerMove : MonoBehaviour
     
     private float _currentAcceleration;
     
+    private float _cameraStartX;
+    private float _cameraEndX;
+    private float _cameraStartY;
+    private float _cameraHalfY;
+
+    private void Awake()
+    {
+        Camera cam = Camera.main;
+        Vector2 cameraCenter = cam.transform.position;
+
+        float halfHeight = cam.orthographicSize;
+        float halfWidth = halfHeight * cam.aspect;
+
+        _cameraStartX = cameraCenter.x - halfWidth;
+        _cameraEndX =  cameraCenter.x + halfWidth;
+        _cameraStartY =  cameraCenter.y - halfHeight;
+        _cameraHalfY = cameraCenter.y;
+        Debug.Log($"startX : {_cameraStartX}, startY: {_cameraStartY}, endX : {_cameraEndX}, endY: {_cameraHalfY}");
+    }
+    
     // 목적 : 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다
     // Update는 매 프레임마다 실행 -> 초당 프레임 실행은 별도 설정이 없는 경우 성능 내에서 가능한 밚이
     private void Update()
@@ -18,8 +38,6 @@ public class PlayerMove : MonoBehaviour
         // GetAxis("Horizontal") 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 ~ 1f
         // GetAxis("Vertical") 키보드 위/아래 입력 상태에 따라 -1f ~ 0 ~ 1f
         // GetAxisRaw -> -1f or 1f
-        
-        Debug.Log($"h :{h}, v:{v}");
         
         //2. 키보드 입력에 따라 방향을 구한다.
         // 게임에는 벡터라는 타입이 있다. 벡터는(크기와 방향을 의미)
@@ -38,7 +56,16 @@ public class PlayerMove : MonoBehaviour
         {
             _currentAcceleration = 1f / Acceleration;
         }
-        transform.Translate(normalizedSpeed * _currentAcceleration * Time.deltaTime);
+        Vector2 distance = normalizedSpeed * _currentAcceleration * Time.deltaTime;
+
+        bool isOverStartX = transform.position.x + distance.x <= _cameraStartX;
+        bool isOverEndX = transform.position.x + distance.x >= _cameraEndX;
+        bool isOverStartY = transform.position.y + distance.y <= _cameraStartY;
+        bool isOverEndY = transform.position.y + distance.y >= _cameraHalfY;
+        if (!isOverStartX && !isOverEndX && !isOverEndY && !isOverStartY)
+        {
+            transform.Translate(distance);
+        }
         // deltaTime : 이전 프레임으로부터 현재 프레임까지 시간이 얼마나 지났는가를 MS 단위로 반환
         
         // 새로운 위치 = 현재 위치 + 속도(방향 * 크기) * 시간
