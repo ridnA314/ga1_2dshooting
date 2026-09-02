@@ -21,13 +21,16 @@ public class PlayerFire : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        Fire();
+        if (_isAutoFire || Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
         ChangeFireMode();
     }
 
     private void Fire()
     {
-        if ((_isAutoFire || Input.GetKeyDown(KeyCode.Space)) && _timer > FireCoolTime)
+        if (_timer > FireCoolTime)
         {
             GameObject bulletL = Instantiate(BulletPrefab);
             bulletL.transform.position = FirePointTransforms[0].position;
