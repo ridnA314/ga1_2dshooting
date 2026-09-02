@@ -129,6 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 513437350}
   - component: {fileID: 513437349}
+  - component: {fileID: 513437351}
+  - component: {fileID: 513437352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -210,6 +212,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &513437351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513437348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8476f2b2684e6034c9cde30ef077cf98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
+  SpeedScalar: 3
+  Acceleration: 2
+--- !u!114 &513437352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513437348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd34b41b5db98746be17004f1778caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFire
+  BulletPrefab: {fileID: 2809131470260503210, guid: 109c1c622a891164ca90fddfc7c58657, type: 3}
+  FirePoint: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
