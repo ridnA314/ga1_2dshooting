@@ -1,9 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMove : MonoBehaviour
 {
     // require field
-    public float Speed;
+    public float SpeedScalar;
     public float Acceleration;
     
     private float _currentAcceleration;
@@ -13,8 +14,18 @@ public class PlayerMove : MonoBehaviour
     private float _cameraStartY;
     private float _cameraHalfY;
 
+    private List<Vector2> _moveCommandRecords;
+    private List<KeyCode> _acceleationCommandRecords;
+    private float _timer;
+    private bool _replaying;
+
     private void Awake()
     {
+        _moveCommandRecords = new List<Vector2>();
+        _acceleationCommandRecords = new List<KeyCode>();
+        _timer = 0;
+        _replaying = false;
+        
         Camera cam = Camera.main;
         Vector2 cameraCenter = cam.transform.position;
 
@@ -25,38 +36,63 @@ public class PlayerMove : MonoBehaviour
         _cameraEndX =  cameraCenter.x + halfWidth;
         _cameraStartY =  cameraCenter.y - halfHeight;
         _cameraHalfY = cameraCenter.y;
-        Debug.Log($"startX : {_cameraStartX}, startY: {_cameraStartY}, endX : {_cameraEndX}, endY: {_cameraHalfY}");
     }
     
     // 목적 : 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다
     // Update는 매 프레임마다 실행 -> 초당 프레임 실행은 별도 설정이 없는 경우 성능 내에서 가능한 밚이
     private void Update()
     {
-        //1. 키보드 입력을 받는다.
+        if (!_replaying)
+        {
+            _timer +=  Time.deltaTime;
+            Vector2 speed = _getSpeed();
+            _move(speed);
+        }
+    }
+
+    private Vector2 _getSpeed()
+    {
         float h = Input.GetAxisRaw("Horizontal"); 
         float v = Input.GetAxisRaw("Vertical");
-        // GetAxis("Horizontal") 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 ~ 1f
-        // GetAxis("Vertical") 키보드 위/아래 입력 상태에 따라 -1f ~ 0 ~ 1f
-        // GetAxisRaw -> -1f or 1f
         
-        //2. 키보드 입력에 따라 방향을 구한다.
-        // 게임에는 벡터라는 타입이 있다. 벡터는(크기와 방향을 의미)
-        Vector2 direction = new Vector2(h, v); // 왼쪽 방향
-        //Vector2 direction = Vector2.left; //위와 동일
+        Vector2 speed = new Vector2(h, v);
+        KeyCode accelerationKey = KeyCode.None;
+        speed = _accelate(speed, out KeyCode key);
+
+        if (_timer >= 0.1f)
+        {
+            _moveCommandRecords.Add(speed);
+            _acceleationCommandRecords.Add(key);
+            _timer = 0f;
+        }
         
-        //3. 방향과 속도에 따라 이동한다. //매직 넘버란 : 보는 사람에 따라 의미가 달라질 수 있는 숫자(즉, 헷갈릴 수 있는)
-        // 대각선 방향 크기가 더 크기 때문에 보간
-        Vector2 normalizedSpeed = (direction * Speed).normalized; // 벡터 길이를 1로 만들어주는 것
+        return speed;
+    }
+    
+    private Vector2 _accelate(Vector2 speed, out KeyCode key)
+    {
+        Vector2 normalizedSpeed = (speed * SpeedScalar).normalized;
+        
         _currentAcceleration = 1f;
+        key = KeyCode.None;
         if (Input.GetKey(KeyCode.E))
         {
+            key = KeyCode.E;
             _currentAcceleration = Acceleration;
         }
         else if (Input.GetKey(KeyCode.Q))
         {
+            key = KeyCode.Q;
             _currentAcceleration = 1f / Acceleration;
         }
-        Vector2 distance = normalizedSpeed * _currentAcceleration * Time.deltaTime;
+        
+        Vector2 acceleratedSpeed = normalizedSpeed * _currentAcceleration;
+        return acceleratedSpeed;
+    }
+    
+    private void _move(Vector2 speed)
+    {
+        Vector2 distance = speed * Time.deltaTime;
 
         bool isOverStartX = transform.position.x + distance.x <= _cameraStartX;
         bool isOverEndX = transform.position.x + distance.x >= _cameraEndX;
@@ -76,9 +112,5 @@ public class PlayerMove : MonoBehaviour
         {
             transform.Translate(distance);
         }
-        // deltaTime : 이전 프레임으로부터 현재 프레임까지 시간이 얼마나 지났는가를 MS 단위로 반환
-        
-        // 새로운 위치 = 현재 위치 + 속도(방향 * 크기) * 시간
-        //transform.position += (Vector3)direction * Speed * Time.deltaTime;
     }
 }
