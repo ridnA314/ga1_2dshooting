@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float SpeedScalar;
     
