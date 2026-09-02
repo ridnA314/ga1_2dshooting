@@ -3,14 +3,22 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     public GameObject BulletPrefab;
-    public Transform FirePoint;
+    public Transform FirePointL;
+    public Transform FirePointR;
     
     private void Update()
     {
+        Fire();
+    }
+
+    private void Fire()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject bullet = Instantiate(BulletPrefab);
-            bullet.transform.position = FirePoint.position;
+            GameObject bulletL = Instantiate(BulletPrefab);
+            bulletL.transform.position = FirePointL.position;
+            GameObject bulletR = Instantiate(BulletPrefab);
+            bulletR.transform.position = FirePointR.position;
         }
     }
 }
