@@ -3,8 +3,12 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     public GameObject BulletPrefab;
+    public GameObject SupportBulletPrefab;
+    
     public Transform FirePointL;
     public Transform FirePointR;
+    public Transform SupportFirePointL;
+    public Transform SupportFirePointR;
 
     public float FireCoolTime;
     
@@ -32,9 +36,19 @@ public class PlayerFire : MonoBehaviour
             bulletL.transform.position = FirePointL.position;
             GameObject bulletR = Instantiate(BulletPrefab);
             bulletR.transform.position = FirePointR.position;
+
+            SupportFire();
             
             _timer = 0f;
         }
+    }
+    
+    private void SupportFire()
+    {
+        GameObject supportBulletL = Instantiate(SupportBulletPrefab);
+        supportBulletL.transform.position = SupportFirePointL.position;
+        GameObject supportBulletR = Instantiate(SupportBulletPrefab);
+        supportBulletR.transform.position = SupportFirePointR.position;
     }
     
     private void ChangeFireMode()
