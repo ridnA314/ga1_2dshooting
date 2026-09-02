@@ -62,7 +62,17 @@ public class PlayerMove : MonoBehaviour
         bool isOverEndX = transform.position.x + distance.x >= _cameraEndX;
         bool isOverStartY = transform.position.y + distance.y <= _cameraStartY;
         bool isOverEndY = transform.position.y + distance.y >= _cameraHalfY;
-        if (!isOverStartX && !isOverEndX && !isOverEndY && !isOverStartY)
+        
+        if (isOverStartX)
+        {
+            distance = new Vector2(_cameraEndX - transform.position.x, 0);
+        }
+        else if (isOverEndX)
+        {
+            distance = new Vector2(_cameraStartX - transform.position.x, 0);
+        }
+        
+        if (!isOverEndY && !isOverStartY)
         {
             transform.Translate(distance);
         }
