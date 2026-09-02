@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
         {
             _timer +=  Time.deltaTime;
             Vector2 speed = GetSpeed();
-            _move(speed);
+            Move(speed);
         }
     }
 
@@ -89,7 +89,7 @@ public class PlayerMove : MonoBehaviour
         return acceleratedSpeed;
     }
     
-    private void _move(Vector2 speed)
+    private void Move(Vector2 speed)
     {
         Vector2 distance = speed * Time.deltaTime;
 
