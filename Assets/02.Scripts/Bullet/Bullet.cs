@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float Power;
     public float MoveSpeedScalar;
 
     private void Update()
@@ -24,7 +25,13 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(Power);
+            float currentHealth = enemy.GetHealth();
+            if (currentHealth <= 0f)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
