@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(Power);
             if (enemy.IsDead())
             {
-                Destroy(collision.gameObject);
+                Destroy(enemy.gameObject);
             }
         }
     }
