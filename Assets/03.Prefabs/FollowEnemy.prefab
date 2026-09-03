@@ -124,7 +124,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -179,5 +179,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebca49ac84a250547b4e3da63f00b0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowEnemy
-  Health: 100
-  MoveSpeedScalar: 3
+  _health: 100
+  _moveSpeedScalar: 0
