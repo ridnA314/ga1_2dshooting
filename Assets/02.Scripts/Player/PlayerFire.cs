@@ -4,11 +4,11 @@ public class PlayerFire : MonoBehaviour
 {
     public GameObject BulletPrefab;
     public GameObject SupportBulletPrefab;
-    
+
     public Transform[] FirePointTransforms = new Transform[4];
 
     public float FireCoolTime;
-    
+
     private float _timer;
     private bool _isAutoFire;
 
@@ -17,7 +17,7 @@ public class PlayerFire : MonoBehaviour
         _timer = FireCoolTime;
         _isAutoFire = false;
     }
-    
+
     private void Update()
     {
         _timer += Time.deltaTime;
@@ -25,6 +25,7 @@ public class PlayerFire : MonoBehaviour
         {
             Fire();
         }
+
         ChangeFireMode();
     }
 
@@ -38,11 +39,11 @@ public class PlayerFire : MonoBehaviour
             bulletR.transform.position = FirePointTransforms[1].position;
 
             SupportFire();
-            
+
             _timer = 0f;
         }
     }
-    
+
     private void SupportFire()
     {
         GameObject supportBulletL = Instantiate(SupportBulletPrefab);
@@ -50,7 +51,7 @@ public class PlayerFire : MonoBehaviour
         GameObject supportBulletR = Instantiate(SupportBulletPrefab);
         supportBulletR.transform.position = FirePointTransforms[3].position;
     }
-    
+
     private void ChangeFireMode()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
