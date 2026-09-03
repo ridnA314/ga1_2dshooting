@@ -18,18 +18,11 @@ public class Bullet : MonoBehaviour
         transform.Translate(distance);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("충돌!");
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        Debug.Log("충돌중");
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        Debug.Log("충돌 끝!");
+        // destroy self
+        Destroy(gameObject);
+        // destroy enemy
+        Destroy(collision.gameObject);
     }
 }
