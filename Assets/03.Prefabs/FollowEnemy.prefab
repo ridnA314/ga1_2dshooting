@@ -180,5 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowEnemy
   Health: 100
-  MoveSpeedScalar: 0
-  Player: {fileID: 0}
+  MoveSpeedScalar: 3

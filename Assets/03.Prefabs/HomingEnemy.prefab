@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 410618428864042820}
   - component: {fileID: 1981469537236604291}
   - component: {fileID: 4372483349673943341}
+  - component: {fileID: 4132660834275869961}
   m_Layer: 8
   m_Name: HomingEnemy
   m_TagString: Enemy
@@ -166,3 +167,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4132660834275869961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628862896923024105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18a3649f7458b446833e6bb9f6ae069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
+  Health: 100
+  MoveSpeedScalar: 3
