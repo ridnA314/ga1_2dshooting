@@ -27,8 +27,7 @@ public class Bullet : MonoBehaviour
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(Power);
-            float currentHealth = enemy.GetHealth();
-            if (currentHealth <= 0f)
+            if (enemy.IsDead())
             {
                 Destroy(collision.gameObject);
             }

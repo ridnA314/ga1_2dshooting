@@ -17,8 +17,13 @@ public abstract class Enemy : MonoBehaviour
         Health -= damage;
     }
 
-    public float GetHealth()
+    public bool IsDead()
     {
-        return Health;
+        if (Health <= 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
