@@ -6,7 +6,11 @@ public class HomingEnemy : Enemy
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindWithTag("Player");
+        if (_player == null)
+        {
+            Debug.Log("플레이어를 찾지 못함");
+        }
     }
 
     public override void Move()

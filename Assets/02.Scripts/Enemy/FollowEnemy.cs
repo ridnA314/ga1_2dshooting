@@ -6,7 +6,13 @@ public class FollowEnemy : Enemy
 
     private void Start()
     {
-        _targetDirection = GameObject.FindWithTag("Player").transform.position - transform.position;
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null)
+        {
+            Debug.Log("플레이어를 찾지 못함");
+        }
+
+        _targetDirection = player.transform.position - transform.position;
         _targetDirection = _targetDirection.normalized;
     }
 
