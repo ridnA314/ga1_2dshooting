@@ -20,9 +20,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // destroy self
         Destroy(gameObject);
-        // destroy enemy
-        Destroy(collision.gameObject);
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
