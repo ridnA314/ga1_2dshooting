@@ -12,7 +12,7 @@ public class FollowEnemy : Enemy
 
     public override void Move()
     {
-        Vector2 distance = _targetDirection * MoveSpeedScalar * Time.deltaTime;
+        Vector2 distance = _targetDirection * _moveSpeedScalar * Time.deltaTime;
         transform.Translate(distance);
     }
 }

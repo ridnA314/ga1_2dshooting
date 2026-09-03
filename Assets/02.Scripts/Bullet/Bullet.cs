@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float Power;
-    public float MoveSpeedScalar;
+    [SerializeField] private float _power;
+    [SerializeField] public float _moveSpeedScalar;
 
     private void Update()
     {
@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     private void Move()
     {
         Vector2 direction = Vector2.up;
-        Vector2 distance = direction * MoveSpeedScalar * Time.deltaTime;
+        Vector2 distance = direction * _moveSpeedScalar * Time.deltaTime;
 
         transform.Translate(distance);
     }
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(Power);
+            enemy.TakeDamage(_power);
         }
     }
 }

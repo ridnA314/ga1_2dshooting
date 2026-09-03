@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public float Health = 100f;
-    public float MoveSpeedScalar;
+    [SerializeField] private float _health = 100f;
+    [SerializeField] protected float _moveSpeedScalar;
 
     private void Update()
     {
@@ -14,8 +14,8 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+        _health -= damage;
+        if (_health <= 0)
         {
             Destroy(gameObject);
         }
