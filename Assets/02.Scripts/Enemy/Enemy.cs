@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public float Health = 100f;
     public float MoveSpeedScalar;
@@ -10,13 +10,7 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-    private void Move()
-    {
-        Vector2 direction = Vector2.down;
-        Vector2 distance = direction * MoveSpeedScalar * Time.deltaTime;
-
-        transform.Translate(distance);
-    }
+    public abstract void Move();
 
     public void TakeDamage(float damage)
     {
