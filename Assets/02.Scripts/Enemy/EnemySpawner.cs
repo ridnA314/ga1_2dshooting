@@ -8,13 +8,25 @@ public class EnemySpawner : MonoBehaviour
 
     private float _timer;
 
-    [Header("스폰할 적 프리팹")]
+    [Header("Downward")]
     [SerializeField]
-    private Enemy _enemyPrefab;
+    private Enemy _downWardEnemyPrefab;
+
+    [Header("Aimed")]
+    [SerializeField]
+    private Enemy _aimedEnemyPrefab;
+
+    [Header("Homing")]
+    [SerializeField]
+    private Enemy _homingEnemyPrefab;
 
     [Header("탐색할 플레이어")]
     [SerializeField]
     private Transform _playerTransform;
+
+    [Header("스폰 확률")]
+    [SerializeField]
+    private int[] _probabilitiesForSpawnEnemy;
 
     private void Update()
     {
@@ -32,10 +44,31 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (_playerTransform == null || _enemyPrefab == null) return;
+        if (_playerTransform == null) return;
+        if (_homingEnemyPrefab == null || _aimedEnemyPrefab == null || _downWardEnemyPrefab == null) return;
 
-        Enemy enemy = Instantiate(_enemyPrefab);
+        Enemy enemy = GetEnemyPrefabByProbability();
+        enemy = Instantiate(enemy);
         enemy.Initialize(_playerTransform);
         enemy.transform.position = transform.position;
+    }
+
+    private Enemy GetEnemyPrefabByProbability()
+    {
+        if (_probabilitiesForSpawnEnemy.Length < 3) return _downWardEnemyPrefab;
+
+        int probability = UnityEngine.Random.Range(0, 100);
+
+        if (probability <= _probabilitiesForSpawnEnemy[2])
+        {
+            return _homingEnemyPrefab;
+        }
+
+        if (probability <= _probabilitiesForSpawnEnemy[1] + _probabilitiesForSpawnEnemy[2])
+        {
+            return _aimedEnemyPrefab;
+        }
+
+        return _downWardEnemyPrefab;
     }
 }
