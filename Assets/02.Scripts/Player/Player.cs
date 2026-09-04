@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GrowHealth(float amount)
+    public void GrowUpHealth(float amount)
     {
         _health += amount;
     }

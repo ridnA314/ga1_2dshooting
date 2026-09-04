@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerFire : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class PlayerFire : MonoBehaviour
 
     public Transform[] FirePointTransforms = new Transform[4];
 
-    public float FireCoolTime;
+    [SerializeField]
+    private float _attackCoolTime = 2.2f;
 
     private float _timer;
     private bool _isAutoFire;
@@ -16,7 +18,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Awake()
     {
-        _timer = FireCoolTime;
+        _timer = _attackCoolTime;
         _isAutoFire = false;
     }
 
@@ -33,7 +35,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Fire()
     {
-        if (_timer > FireCoolTime)
+        if (_timer > _attackCoolTime)
         {
             Bullet bulletL = Instantiate(BulletPrefab);
             bulletL.Initialize(_powerBonus);
@@ -71,5 +73,14 @@ public class PlayerFire : MonoBehaviour
     public void GrowUpPower(float powerBonus)
     {
         _powerBonus += powerBonus;
+    }
+
+    public void GrowUpAttackSpeed(float attackSpeedBonus, float attackSpeedLimit)
+    {
+        _attackCoolTime -= attackSpeedBonus;
+        if (_attackCoolTime < attackSpeedLimit)
+        {
+            _attackCoolTime = attackSpeedLimit;
+        }
     }
 }
