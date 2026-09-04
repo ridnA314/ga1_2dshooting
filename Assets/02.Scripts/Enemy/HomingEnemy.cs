@@ -6,6 +6,7 @@ public class HomingEnemy : Enemy
 
     public override void Initialize(Transform playerTransform)
     {
+        if (playerTransform == null) return;
         _playerTransform = playerTransform;
     }
 

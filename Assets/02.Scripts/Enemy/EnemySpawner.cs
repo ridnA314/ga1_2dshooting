@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (_playerTransform == null) return;
+        if (_playerTransform == null || _enemyPrefab == null) return;
 
         Enemy enemy = Instantiate(_enemyPrefab);
         enemy.Initialize(_playerTransform);
