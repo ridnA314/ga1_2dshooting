@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField]
     private float _timer = 0f;
 
     [SerializeField]
