@@ -78,6 +78,7 @@ public abstract class Enemy : MonoBehaviour
         }
 
         item = Instantiate(item);
+        item.Initialize(_playerTransform);
         item.transform.position = transform.position;
     }
 }

@@ -21,7 +21,7 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    private void Initialize(Transform playerTransform)
+    public void Initialize(Transform playerTransform)
     {
         _playerTransform = playerTransform;
     }

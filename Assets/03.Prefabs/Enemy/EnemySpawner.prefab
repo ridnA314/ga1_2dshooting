@@ -48,5 +48,8 @@ MonoBehaviour:
   _downWardEnemyPrefab: {fileID: -8961038194732156784, guid: 34ef25e224050bb409121ebb509bf480, type: 3}
   _aimedEnemyPrefab: {fileID: 6981627375387429709, guid: f546285c9fec47d49a809a0e8922c4d5, type: 3}
   _homingEnemyPrefab: {fileID: 4132660834275869961, guid: ee5fbedadc055e14c832182fba67b4ca, type: 3}
+  _powerItemPrefab: {fileID: 7056413410333432600, guid: b18b3e132df375f42bcb2443037aff5d, type: 3}
+  _healthItemPrefab: {fileID: 4116633135805644247, guid: 04afc042c0de71240a873d1de14d60a8, type: 3}
+  _attackSpeedItemPrefab: {fileID: 1449749091969160982, guid: 816946110b114e6419d58d820fcdbcc5, type: 3}
   _playerTransform: {fileID: 0}
   _probabilitiesForSpawnEnemy: 320000001e00000014000000
