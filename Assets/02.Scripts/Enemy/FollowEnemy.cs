@@ -10,6 +10,7 @@ public class FollowEnemy : Enemy
         if (player == null)
         {
             Debug.Log("플레이어를 찾지 못함");
+            Destroy(gameObject);
         }
 
         _targetDirection = player.transform.position - transform.position;

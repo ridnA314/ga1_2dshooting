@@ -10,6 +10,7 @@ public class HomingEnemy : Enemy
         if (_player == null)
         {
             Debug.Log("플레이어를 찾지 못함");
+            Destroy(gameObject);
         }
     }
 

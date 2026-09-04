@@ -2,8 +2,14 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _health = 100f;
-    [SerializeField] protected float _moveSpeedScalar;
+    [SerializeField]
+    private float _health = 100f;
+
+    [SerializeField]
+    protected float _moveSpeedScalar;
+
+    [SerializeField]
+    private float _power = 10f;
 
     private void Update()
     {
@@ -18,6 +24,17 @@ public abstract class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+
+            PlayerStatus player = other.gameObject.GetComponent<PlayerStatus>();
+            player.TakeDamage(_power);
         }
     }
 }
