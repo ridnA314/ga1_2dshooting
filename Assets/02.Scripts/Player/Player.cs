@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField]
     private float _health = 100f;

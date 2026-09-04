@@ -33,7 +33,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (other.TryGetComponent(out PlayerStatus player))
+            if (other.TryGetComponent(out Player player))
             {
                 player.TakeDamage(_power);
             }
