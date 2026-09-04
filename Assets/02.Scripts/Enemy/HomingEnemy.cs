@@ -11,6 +11,7 @@ public class HomingEnemy : Enemy
         {
             Debug.Log("플레이어를 찾지 못함");
             Destroy(gameObject);
+            return;
         }
     }
 

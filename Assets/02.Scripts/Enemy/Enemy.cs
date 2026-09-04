@@ -31,10 +31,12 @@ public abstract class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            if (other.TryGetComponent(out PlayerStatus player))
+            {
+                player.TakeDamage(_power);
+            }
 
-            PlayerStatus player = other.gameObject.GetComponent<PlayerStatus>();
-            player.TakeDamage(_power);
+            Destroy(gameObject);
         }
     }
 }
