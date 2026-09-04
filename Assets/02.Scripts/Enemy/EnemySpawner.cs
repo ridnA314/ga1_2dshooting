@@ -20,6 +20,18 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Enemy _homingEnemyPrefab;
 
+    [Header("Power Item")]
+    [SerializeField]
+    private Item _powerItemPrefab;
+
+    [Header("Health Item")]
+    [SerializeField]
+    private Item _healthItemPrefab;
+
+    [Header("Attack Speed Item")]
+    [SerializeField]
+    private Item _attackSpeedItemPrefab;
+
     [Header("탐색할 플레이어")]
     [SerializeField]
     private Transform _playerTransform;
@@ -50,6 +62,7 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemy = GetEnemyPrefabByProbability();
         enemy = Instantiate(enemy);
         enemy.Initialize(_playerTransform);
+        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab);
         enemy.transform.position = transform.position;
     }
 

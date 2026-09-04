@@ -11,16 +11,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private float _power = 10f;
 
-    [Header("Power Item")]
-    [SerializeField]
     private Item _powerItemPrefab;
-
-    [Header("Health Item")]
-    [SerializeField]
     private Item _healthItemPrefab;
-
-    [Header("Attack Speed Item")]
-    [SerializeField]
     private Item _attackSpeedItemPrefab;
 
     protected Transform _playerTransform;
@@ -31,6 +23,13 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public abstract void Initialize(Transform playerTransform);
+
+    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem)
+    {
+        _powerItemPrefab = powerItem;
+        _healthItemPrefab = healthItem;
+        _attackSpeedItemPrefab = attackSpeedItem;
+    }
 
     public abstract void Move();
 
