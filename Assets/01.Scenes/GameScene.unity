@@ -552,14 +552,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd34b41b5db98746be17004f1778caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFire
-  BulletPrefab: {fileID: 2809131470260503210, guid: 109c1c622a891164ca90fddfc7c58657, type: 3}
-  SupportBulletPrefab: {fileID: 2809131470260503210, guid: 6597c26a33e3bd7498b4240fcfcf8eb8, type: 3}
+  BulletPrefab: {fileID: 5117428648197144484, guid: 109c1c622a891164ca90fddfc7c58657, type: 3}
+  SupportBulletPrefab: {fileID: 5117428648197144484, guid: 6597c26a33e3bd7498b4240fcfcf8eb8, type: 3}
   FirePointTransforms:
   - {fileID: 21104038}
   - {fileID: 477747499}
   - {fileID: 1517149751}
   - {fileID: 31534194}
-  FireCoolTime: 0.5
+  _attackCoolTime: 1.5
 --- !u!50 &513437353
 Rigidbody2D:
   serializedVersion: 5
@@ -1282,6 +1282,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4132660834275869961, guid: ee5fbedadc055e14c832182fba67b4ca, type: 3}
     - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
+      propertyPath: _spawnInterval
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 513437350}
@@ -1378,6 +1382,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6981627375387429709, guid: f546285c9fec47d49a809a0e8922c4d5, type: 3}
     - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
+      propertyPath: _spawnInterval
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 513437350}
@@ -1442,6 +1450,10 @@ PrefabInstance:
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: -8961038194732156784, guid: 34ef25e224050bb409121ebb509bf480, type: 3}
+    - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
+      propertyPath: _spawnInterval
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2262264727284255094, guid: 85bd48a1e5f523e4a881b0588174afba, type: 3}
       propertyPath: _playerTransform
       value: 

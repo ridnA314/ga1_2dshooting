@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4066512536220193532}
   - component: {fileID: 6293110356988683266}
   - component: {fileID: 1449749091969160982}
+  - component: {fileID: 2626717093461570064}
   m_Layer: 0
   m_Name: AttackSpeedItem
   m_TagString: Item
@@ -104,8 +105,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a7dfb840b638640bab9526e8ab3f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackSpeedItem
-  _timer: 0
   _waitingTime: 1.2
   _moveSpeedScalar: 4
   _attackSpeedBonus: 0.5
   _attackSpeedLimit: 0.2
+--- !u!70 &2626717093461570064
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242383074704461481}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
