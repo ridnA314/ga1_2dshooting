@@ -2,19 +2,13 @@ using UnityEngine;
 
 public class FollowEnemy : Enemy
 {
+    private Vector2 _playerPosition;
     private Vector2 _targetDirection;
 
-    private void Start()
+    public override void Initialize(Transform playerTransform)
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player == null)
-        {
-            Debug.Log("플레이어를 찾지 못함");
-            Destroy(gameObject);
-            return;
-        }
-
-        _targetDirection = player.transform.position - transform.position;
+        _playerPosition = playerTransform.position;
+        _targetDirection = _playerPosition - (Vector2)transform.position;
         _targetDirection = _targetDirection.normalized;
     }
 

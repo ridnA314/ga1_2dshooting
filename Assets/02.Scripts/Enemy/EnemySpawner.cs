@@ -12,8 +12,18 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Enemy _enemyPrefab;
 
+    [Header("탐색할 플레이어")]
+    [SerializeField]
+    private Transform _playerTransform;
+
     private void Update()
     {
+        if (_playerTransform == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         _timer += Time.deltaTime;
 
         if (_timer >= _spawnInterval)
@@ -29,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         Enemy enemy = Instantiate(_enemyPrefab);
+        enemy.Initialize(_playerTransform);
         enemy.transform.position = transform.position;
     }
 }
