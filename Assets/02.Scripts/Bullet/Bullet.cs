@@ -9,9 +9,16 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float _moveSpeedScalar;
 
+    private float _bonusPowerOfPlayer = 0f;
+
     private void Update()
     {
         Move();
+    }
+
+    public void Initialize(float powerBonus)
+    {
+        _bonusPowerOfPlayer = powerBonus;
     }
 
     private void Move()
@@ -27,7 +34,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(_power);
+            enemy.TakeDamage(_power + _bonusPowerOfPlayer);
         }
 
         Destroy(gameObject);

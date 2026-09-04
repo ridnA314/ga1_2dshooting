@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     [SerializeField]
     private float _timer = 0f;
@@ -35,4 +35,19 @@ public class Item : MonoBehaviour
         Vector2 distance = targetDirection * _moveSpeedScalar * Time.deltaTime;
         transform.Translate(distance);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (other.TryGetComponent(out Player player))
+            {
+                GiveEffect(player);
+            }
+
+            Destroy(gameObject);
+        }
+    }
+
+    protected abstract void GiveEffect(Player player);
 }

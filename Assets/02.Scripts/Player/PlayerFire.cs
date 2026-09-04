@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {
-    public GameObject BulletPrefab;
-    public GameObject SupportBulletPrefab;
+    public Bullet BulletPrefab;
+    public Bullet SupportBulletPrefab;
 
     public Transform[] FirePointTransforms = new Transform[4];
 
@@ -11,6 +11,8 @@ public class PlayerFire : MonoBehaviour
 
     private float _timer;
     private bool _isAutoFire;
+
+    private float _powerBonus = 0f;
 
     private void Awake()
     {
@@ -33,9 +35,12 @@ public class PlayerFire : MonoBehaviour
     {
         if (_timer > FireCoolTime)
         {
-            GameObject bulletL = Instantiate(BulletPrefab);
+            Bullet bulletL = Instantiate(BulletPrefab);
+            bulletL.Initialize(_powerBonus);
             bulletL.transform.position = FirePointTransforms[0].position;
-            GameObject bulletR = Instantiate(BulletPrefab);
+
+            Bullet bulletR = Instantiate(BulletPrefab);
+            bulletR.Initialize(_powerBonus);
             bulletR.transform.position = FirePointTransforms[1].position;
 
             SupportFire();
@@ -46,9 +51,12 @@ public class PlayerFire : MonoBehaviour
 
     private void SupportFire()
     {
-        GameObject supportBulletL = Instantiate(SupportBulletPrefab);
+        Bullet supportBulletL = Instantiate(SupportBulletPrefab);
+        supportBulletL.Initialize(_powerBonus);
         supportBulletL.transform.position = FirePointTransforms[2].position;
-        GameObject supportBulletR = Instantiate(SupportBulletPrefab);
+
+        Bullet supportBulletR = Instantiate(SupportBulletPrefab);
+        supportBulletL.Initialize(_powerBonus);
         supportBulletR.transform.position = FirePointTransforms[3].position;
     }
 
@@ -58,5 +66,10 @@ public class PlayerFire : MonoBehaviour
         {
             _isAutoFire = !_isAutoFire;
         }
+    }
+
+    public void GrowUpPower(float powerBonus)
+    {
+        _powerBonus += powerBonus;
     }
 }
