@@ -180,4 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowEnemy
   _health: 100
-  _moveSpeedScalar: 0
+  _moveSpeedScalar: 3
