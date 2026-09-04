@@ -59,6 +59,8 @@ public class EnemySpawner : MonoBehaviour
 
         int probability = UnityEngine.Random.Range(0, 100);
 
+        //Todo: scritable Object를 사용해서 리펙토잉
+        //reson1 : 각 애너미 스폰 확률 뭐가 뭔지 모름
         if (probability <= _probabilitiesForSpawnEnemy[2])
         {
             return _homingEnemyPrefab;
