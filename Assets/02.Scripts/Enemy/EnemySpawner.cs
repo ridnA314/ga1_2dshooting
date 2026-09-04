@@ -18,12 +18,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_playerTransform == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         _timer += Time.deltaTime;
 
         if (_timer >= _spawnInterval)
@@ -38,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
+        if (_playerTransform == null) return;
+
         Enemy enemy = Instantiate(_enemyPrefab);
         enemy.Initialize(_playerTransform);
         enemy.transform.position = transform.position;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StraitEnemy : Enemy
+public class StraightEnemy : Enemy
 {
     public override void Initialize(Transform playerTransform)
     {
