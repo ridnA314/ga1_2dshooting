@@ -6,12 +6,15 @@ public class HomingEnemy : Enemy
 
     private void Start()
     {
+        _player = GameObject.FindWithTag("Player");
+        if (_player == null)
+        {
+            Debug.Log("플레이어를 찾지 못함");
+        }
     }
 
     public override void Move()
     {
-        _player = GameObject.FindWithTag("Player");
-
         Vector2 targetDirection = _player.transform.position - transform.position;
         targetDirection = targetDirection.normalized;
         Vector2 distance = targetDirection * _moveSpeedScalar * Time.deltaTime;
