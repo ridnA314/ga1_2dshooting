@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class HomingEnemy : Enemy
 {
-    private Transform _playerTransform;
-
     public override void Initialize(Transform playerTransform)
     {
         if (playerTransform == null) return;

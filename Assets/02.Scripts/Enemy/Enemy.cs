@@ -11,6 +11,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private float _power = 10f;
 
+    protected Transform _playerTransform;
+
     private void Update()
     {
         Move();

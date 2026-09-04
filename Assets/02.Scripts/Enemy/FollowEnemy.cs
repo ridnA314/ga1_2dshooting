@@ -7,7 +7,8 @@ public class FollowEnemy : Enemy
     public override void Initialize(Transform playerTransform)
     {
         if (playerTransform == null) return;
-        _targetDirection = playerTransform.position - transform.position;
+        _playerTransform = playerTransform;
+        _targetDirection = _playerTransform.position - transform.position;
         _targetDirection = _targetDirection.normalized;
     }
 

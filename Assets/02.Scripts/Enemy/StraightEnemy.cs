@@ -4,6 +4,7 @@ public class StraightEnemy : Enemy
 {
     public override void Initialize(Transform playerTransform)
     {
+        _playerTransform = playerTransform;
     }
 
     public override void Move()
