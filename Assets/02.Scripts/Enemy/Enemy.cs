@@ -40,6 +40,7 @@ public abstract class Enemy : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
+            DropItem();
             Destroy(gameObject);
         }
     }
@@ -53,7 +54,6 @@ public abstract class Enemy : MonoBehaviour
                 player.TakeDamage(_power);
             }
 
-            DropItem();
             Destroy(gameObject);
         }
     }
