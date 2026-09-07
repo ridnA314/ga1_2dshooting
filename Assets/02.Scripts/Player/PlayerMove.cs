@@ -5,6 +5,8 @@ using UnityEngine.Serialization;
 public class PlayerMove : MonoBehaviour
 {
     // require field
+    private Animator _animator;
+
     [SerializeField]
     private float _speedScalar;
 
@@ -24,6 +26,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
+
         _moveCommandRecords = new List<Vector2>();
         _acceleationCommandRecords = new List<KeyCode>();
         _timer = 0;
@@ -59,6 +63,9 @@ public class PlayerMove : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(h, v).normalized;
+
+        _animator.SetInteger("x", (int)direction.x);
+
         KeyCode accelerationKey = KeyCode.None;
         Vector2 speed = direction * _speedScalar;
         speed = Accelate(speed, out KeyCode key);
