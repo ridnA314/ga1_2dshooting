@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class PlayerMove : MonoBehaviour
 {
     // require field
-    public float SpeedScalar;
+    [SerializeField]
+    private float _speedScalar;
+
     public float Acceleration;
 
     private float _currentAcceleration;
@@ -57,7 +60,7 @@ public class PlayerMove : MonoBehaviour
 
         Vector2 direction = new Vector2(h, v).normalized;
         KeyCode accelerationKey = KeyCode.None;
-        Vector2 speed = direction * SpeedScalar;
+        Vector2 speed = direction * _speedScalar;
         speed = Accelate(speed, out KeyCode key);
 
         if (_timer >= 0.1f)
@@ -115,6 +118,6 @@ public class PlayerMove : MonoBehaviour
 
     public void GrowUpMoveSpeed(float amount)
     {
-        SpeedScalar += amount;
+        _speedScalar += amount;
     }
 }
