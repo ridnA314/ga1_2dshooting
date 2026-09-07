@@ -2,6 +2,9 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    private Animator _animator;
+    static readonly int ANIM_PARAM = Animator.StringToHash("IsHit");
+
     [SerializeField]
     private float _health = 100f;
 
@@ -17,6 +20,11 @@ public abstract class Enemy : MonoBehaviour
     private Item _moveSpeedItemPrefab;
 
     protected Transform _playerTransform;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -37,6 +45,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        _animator.SetBool(ANIM_PARAM, true);
         _health -= damage;
         if (_health <= 0)
         {
@@ -86,5 +95,10 @@ public abstract class Enemy : MonoBehaviour
         item = Instantiate(item);
         item.Initialize(_playerTransform);
         item.transform.position = transform.position;
+    }
+
+    public void ExitHit()
+    {
+        _animator.SetBool(ANIM_PARAM, false);
     }
 }

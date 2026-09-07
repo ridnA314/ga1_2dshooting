@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1981469537236604291}
   - component: {fileID: 4372483349673943341}
   - component: {fileID: -8961038194732156784}
+  - component: {fileID: 4975725307235028572}
   m_Layer: 8
   m_Name: StraightEnemy
   m_TagString: Enemy
@@ -182,3 +183,25 @@ MonoBehaviour:
   _health: 100
   _moveSpeedScalar: 3
   _power: 15
+--- !u!95 &4975725307235028572
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628862896923024105}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5592a0ab5d9a2b243a481d9c7a2c012d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
