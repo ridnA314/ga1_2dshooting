@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class HomingEnemy : Enemy
 {
+    [SerializeField]
+    private float _rotationSpeedScalar = 10f;
+
     public override void Initialize(Transform playerTransform)
     {
         if (playerTransform == null) return;
@@ -12,8 +15,12 @@ public class HomingEnemy : Enemy
     {
         if (_playerTransform == null) return;
 
-        Vector2 targetDirection = _playerTransform.position - transform.position;
+        Vector3 targetDirection = _playerTransform.position - transform.position;
         targetDirection = targetDirection.normalized;
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeedScalar * Time.deltaTime);
+
         Vector2 distance = targetDirection * _moveSpeedScalar * Time.deltaTime;
         transform.Translate(distance);
     }

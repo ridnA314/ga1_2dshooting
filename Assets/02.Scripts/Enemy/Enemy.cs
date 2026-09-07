@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     private Animator _animator;
-    static readonly int ANIM_PARAM = Animator.StringToHash("IsHit");
+    static readonly int ANIM_PARAM = Animator.StringToHash("Hit");
 
     [SerializeField]
     private float _health = 100f;
@@ -45,7 +45,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _animator.SetBool(ANIM_PARAM, true);
+        _animator.SetTrigger(ANIM_PARAM);
         _health -= damage;
         if (_health <= 0)
         {
@@ -95,10 +95,5 @@ public abstract class Enemy : MonoBehaviour
         item = Instantiate(item);
         item.Initialize(_playerTransform);
         item.transform.position = transform.position;
-    }
-
-    public void ExitHit()
-    {
-        _animator.SetBool(ANIM_PARAM, false);
     }
 }
