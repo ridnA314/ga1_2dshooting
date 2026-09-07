@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     // require field
     private Animator _animator;
+    static readonly int ANIM_PARAM = Animator.StringToHash("x");
 
     [SerializeField]
     private float _speedScalar;
@@ -64,7 +65,7 @@ public class PlayerMove : MonoBehaviour
 
         Vector2 direction = new Vector2(h, v).normalized;
 
-        _animator.SetInteger("x", (int)direction.x);
+        _animator.SetInteger(ANIM_PARAM, (int)direction.x);
 
         KeyCode accelerationKey = KeyCode.None;
         Vector2 speed = direction * _speedScalar;
