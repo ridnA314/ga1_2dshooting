@@ -66,6 +66,8 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemy = GetEnemyPrefabByProbability();
         enemy = Instantiate(enemy);
         enemy.Initialize(_playerTransform);
+
+        //scriptable object로
         enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab);
         enemy.transform.position = transform.position;
     }
