@@ -32,6 +32,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Item _attackSpeedItemPrefab;
 
+    [Header("Move Speed Item")]
+    [SerializeField]
+    private Item _moveSpeedItemPrefab;
+
     [Header("탐색할 플레이어")]
     [SerializeField]
     private Transform _playerTransform;
@@ -62,7 +66,7 @@ public class EnemySpawner : MonoBehaviour
         Enemy enemy = GetEnemyPrefabByProbability();
         enemy = Instantiate(enemy);
         enemy.Initialize(_playerTransform);
-        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab);
+        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab);
         enemy.transform.position = transform.position;
     }
 

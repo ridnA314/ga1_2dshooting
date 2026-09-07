@@ -51,5 +51,6 @@ MonoBehaviour:
   _powerItemPrefab: {fileID: 7056413410333432600, guid: b18b3e132df375f42bcb2443037aff5d, type: 3}
   _healthItemPrefab: {fileID: 4116633135805644247, guid: 04afc042c0de71240a873d1de14d60a8, type: 3}
   _attackSpeedItemPrefab: {fileID: 1449749091969160982, guid: 816946110b114e6419d58d820fcdbcc5, type: 3}
+  _moveSpeedItemPrefab: {fileID: 7200644026656308278, guid: 93bf6eedd8db5064f8a31ecd04e228cd, type: 3}
   _playerTransform: {fileID: 0}
   _probabilitiesForSpawnEnemy: 320000001e00000014000000

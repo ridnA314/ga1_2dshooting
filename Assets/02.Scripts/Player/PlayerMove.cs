@@ -112,4 +112,9 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(distance);
         }
     }
+
+    public void GrowUpMoveSpeed(float amount)
+    {
+        SpeedScalar += amount;
+    }
 }

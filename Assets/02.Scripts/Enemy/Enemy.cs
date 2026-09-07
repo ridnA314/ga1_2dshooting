@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
     private Item _powerItemPrefab;
     private Item _healthItemPrefab;
     private Item _attackSpeedItemPrefab;
+    private Item _moveSpeedItemPrefab;
 
     protected Transform _playerTransform;
 
@@ -24,11 +25,12 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Initialize(Transform playerTransform);
 
-    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem)
+    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem, Item moveSpeedItem)
     {
         _powerItemPrefab = powerItem;
         _healthItemPrefab = healthItem;
         _attackSpeedItemPrefab = attackSpeedItem;
+        _moveSpeedItemPrefab = moveSpeedItem;
     }
 
     public abstract void Move();
@@ -61,7 +63,7 @@ public abstract class Enemy : MonoBehaviour
         if (_playerTransform == null) return;
 
         int probability = UnityEngine.Random.Range(0, 100);
-        if (probability > 30) return;
+        if (probability > 40) return;
 
         Item item;
         if (probability <= 10)
@@ -71,6 +73,10 @@ public abstract class Enemy : MonoBehaviour
         else if (probability <= 20)
         {
             item = _healthItemPrefab;
+        }
+        else if (probability <= 30)
+        {
+            item = _moveSpeedItemPrefab;
         }
         else
         {
