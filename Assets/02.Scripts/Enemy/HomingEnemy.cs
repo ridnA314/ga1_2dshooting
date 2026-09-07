@@ -15,13 +15,23 @@ public class HomingEnemy : Enemy
     {
         if (_playerTransform == null) return;
 
-        Vector3 targetDirection = _playerTransform.position - transform.position;
+        Vector2 targetDirection = _playerTransform.position - transform.position;
         targetDirection = targetDirection.normalized;
 
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeedScalar * Time.deltaTime);
+        Rotation();
 
         Vector2 distance = targetDirection * _moveSpeedScalar * Time.deltaTime;
         transform.Translate(distance);
+    }
+
+    private void Rotation()
+    {
+        float dx = _playerTransform.position.x - transform.position.x;
+        float dy = _playerTransform.position.y - transform.position.y;
+
+        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+        Vector3 targetAngle = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
+        //transform.eulerAngles = targetAngle;
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetAngle, Time.deltaTime * _rotationSpeedScalar);
     }
 }

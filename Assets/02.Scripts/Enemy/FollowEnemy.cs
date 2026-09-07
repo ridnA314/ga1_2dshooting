@@ -11,13 +11,11 @@ public class FollowEnemy : Enemy
         _targetDirection = _playerTransform.position - transform.position;
         _targetDirection = _targetDirection.normalized;
 
-        Quaternion targetRotation = Quaternion.LookRotation(_targetDirection);
-        float timer = 0f;
-        while (timer < 1f)
-        {
-            Quaternion.Lerp(transform.rotation, targetRotation, timer);
-            timer += Time.deltaTime;
-        }
+        float dx = _targetDirection.x - transform.position.x;
+        float dy = _targetDirection.y - transform.position.y;
+
+        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public override void Move()
