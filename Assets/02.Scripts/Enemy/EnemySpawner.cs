@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _spawnInterval = 3f;
 
-    private float _timer;
+    private float _timer = 2f;
 
     [Header("Downward")]
     [SerializeField]
