@@ -10,7 +10,7 @@ public abstract class Item : MonoBehaviour
     [SerializeField]
     private float _moveSpeedScalar = 4f;
 
-    private Transform _playerTransform;
+    protected Transform _playerTransform;
 
     private void Update()
     {
@@ -41,12 +41,12 @@ public abstract class Item : MonoBehaviour
         {
             if (other.TryGetComponent(out Player player))
             {
-                GiveEffect(player);
+                GiveEffect();
             }
 
             Destroy(gameObject);
         }
     }
 
-    protected abstract void GiveEffect(Player player);
+    protected abstract void GiveEffect();
 }

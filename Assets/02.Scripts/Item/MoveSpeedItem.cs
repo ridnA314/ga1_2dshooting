@@ -5,9 +5,9 @@ public class MoveSpeedItem : Item
     [SerializeField]
     private float _moveSpeedBonus = 5f;
 
-    protected override void GiveEffect(Player player)
+    protected override void GiveEffect()
     {
-        if (player.TryGetComponent(out PlayerMove playerMove))
+        if (_playerTransform.gameObject.TryGetComponent(out PlayerMove playerMove))
         {
             playerMove.GrowUpMoveSpeed(_moveSpeedBonus);
         }

@@ -8,9 +8,9 @@ public class AttackSpeedItem : Item
     [SerializeField]
     private float _attackSpeedLimit = .2f;
 
-    protected override void GiveEffect(Player player)
+    protected override void GiveEffect()
     {
-        if (player.TryGetComponent(out PlayerFire playerFire))
+        if (_playerTransform.gameObject.TryGetComponent(out PlayerFire playerFire))
         {
             playerFire.GrowUpAttackSpeed(_attackSpeedBonus, _attackSpeedLimit);
         }

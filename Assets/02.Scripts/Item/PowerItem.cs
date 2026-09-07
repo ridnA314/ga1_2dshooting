@@ -5,9 +5,9 @@ public class PowerItem : Item
     [SerializeField]
     private float _powerBonus = 5f;
 
-    protected override void GiveEffect(Player player)
+    protected override void GiveEffect()
     {
-        if (player.TryGetComponent(out PlayerFire playerFire))
+        if (_playerTransform.gameObject.TryGetComponent(out PlayerFire playerFire))
         {
             playerFire.GrowUpPower(_powerBonus);
         }

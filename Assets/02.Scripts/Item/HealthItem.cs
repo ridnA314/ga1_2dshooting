@@ -5,8 +5,11 @@ public class HealthItem : Item
     [SerializeField]
     private float _healthBonus = 5f;
 
-    protected override void GiveEffect(Player player)
+    protected override void GiveEffect()
     {
-        player.GrowUpHealth(_healthBonus);
+        if (_playerTransform.gameObject.TryGetComponent(out Player player))
+        {
+            player.GrowUpHealth(_healthBonus);
+        }
     }
 }
