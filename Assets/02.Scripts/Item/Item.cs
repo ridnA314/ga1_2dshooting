@@ -12,6 +12,9 @@ public abstract class Item : MonoBehaviour
 
     protected Transform _playerTransform;
 
+    [SerializeField]
+    private GameObject _itemEffectPrefab;
+
     private void Update()
     {
         _timer += Time.deltaTime;
@@ -44,8 +47,14 @@ public abstract class Item : MonoBehaviour
                 GiveEffect();
             }
 
+            SpawnItemEffect();
             Destroy(gameObject);
         }
+    }
+
+    public void SpawnItemEffect()
+    {
+        Instantiate(_itemEffectPrefab, _playerTransform.position, Quaternion.identity);
     }
 
     protected abstract void GiveEffect();

@@ -137,7 +137,7 @@ MonoBehaviour:
   _health: 100
   _moveSpeedScalar: 3
   _power: 10
-  _deathEffectPrefab: {fileID: 6294508013172393196, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
+  _deathEffectPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!95 &3883057157280237426
 Animator:
   serializedVersion: 7

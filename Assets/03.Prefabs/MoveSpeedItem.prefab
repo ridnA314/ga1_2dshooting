@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4066512536220193532}
   - component: {fileID: 6293110356988683266}
-  - component: {fileID: 2626717093461570064}
   - component: {fileID: 7200644026656308278}
   - component: {fileID: -4116775127977753429}
+  - component: {fileID: 8208638885527866320}
   m_Layer: 10
   m_Name: MoveSpeedItem
   m_TagString: Item
@@ -94,8 +94,46 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!70 &2626717093461570064
-CapsuleCollider2D:
+--- !u!114 &7200644026656308278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242383074704461481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28279c6d317016469b6a2afe6a44062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveSpeedItem
+  _waitingTime: 1.2
+  _moveSpeedScalar: 4
+  _itemEffectPrefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  _moveSpeedBonus: 0.8
+--- !u!95 &-4116775127977753429
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242383074704461481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b8d730678138444c8a4105d86a84032, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &8208638885527866320
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,42 +167,20 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!114 &7200644026656308278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242383074704461481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28279c6d317016469b6a2afe6a44062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoveSpeedItem
-  _waitingTime: 1.2
-  _moveSpeedScalar: 4
-  _moveSpeedBonus: 0.8
---- !u!95 &-4116775127977753429
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242383074704461481}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b8d730678138444c8a4105d86a84032, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6666667, y: 0.6666667}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.33333334, y: 0.20833334}
+      - {x: -0.33333334, y: -0.25}
+      - {x: 0.33333334, y: -0.25}
+      - {x: 0.33333334, y: 0.25}
+      - {x: -0.2916667, y: 0.25}
+  m_UseDelaunayMesh: 1

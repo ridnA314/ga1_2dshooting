@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4066512536220193532}
   - component: {fileID: 6293110356988683266}
   - component: {fileID: 7056413410333432600}
-  - component: {fileID: 8847707287966754022}
   - component: {fileID: 138400553905278746}
+  - component: {fileID: 5662587150108860413}
   m_Layer: 10
   m_Name: PowerItem
   m_TagString: Item
@@ -108,9 +108,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerItem
   _waitingTime: 1.2
   _moveSpeedScalar: 4
+  _itemEffectPrefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   _powerBonus: 5
---- !u!70 &8847707287966754022
-CapsuleCollider2D:
+--- !u!95 &138400553905278746
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242383074704461481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3381e794cd3f1f945a90d587a4beafcd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5662587150108860413
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -144,27 +167,20 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!95 &138400553905278746
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242383074704461481}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3381e794cd3f1f945a90d587a4beafcd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6666667, y: 0.6666667}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.33333334, y: 0.20833334}
+      - {x: -0.33333334, y: -0.25}
+      - {x: 0.33333334, y: -0.25}
+      - {x: 0.33333334, y: 0.25}
+      - {x: -0.2916667, y: 0.25}
+  m_UseDelaunayMesh: 1
