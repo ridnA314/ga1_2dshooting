@@ -19,6 +19,9 @@ public abstract class Enemy : MonoBehaviour
     private Item _attackSpeedItemPrefab;
     private Item _moveSpeedItemPrefab;
 
+    [SerializeField]
+    private GameObject _deathEffectPrefab;
+
     protected Transform _playerTransform;
 
     private void Awake()
@@ -49,9 +52,16 @@ public abstract class Enemy : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
+            SpawnDeathEffect();
+
             DropItem();
             Destroy(gameObject);
         }
+    }
+
+    private void SpawnDeathEffect()
+    {
+        Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
