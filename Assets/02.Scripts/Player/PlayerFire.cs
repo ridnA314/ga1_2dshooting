@@ -11,13 +11,10 @@ public class PlayerFire : MonoBehaviour
     [SerializeField]
     private float _attackCoolTime = 2.2f;
 
-    public float AttackCoolTime => _attackCoolTime;
-
     private float _timer;
     private bool _isAutoFire;
 
     private float _powerBonus = 0f;
-    public float PowerBonus => _powerBonus;
 
     private void Awake()
     {

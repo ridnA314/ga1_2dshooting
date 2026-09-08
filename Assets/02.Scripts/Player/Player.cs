@@ -5,9 +5,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _health;
 
-    //getter
-    public float Health => _health;
-
     [SerializeField]
     private float _maxHealth = 100f;
 
