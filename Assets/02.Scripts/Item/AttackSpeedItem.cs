@@ -13,6 +13,7 @@ public class AttackSpeedItem : Item
         if (_playerTransform.gameObject.TryGetComponent(out PlayerFire playerFire))
         {
             playerFire.GrowUpAttackSpeed(_attackSpeedBonus, _attackSpeedLimit);
+            Debug.Log($"player attack speed: {playerFire.AttackCoolTime}");
         }
     }
 }

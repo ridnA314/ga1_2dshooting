@@ -11,6 +11,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float _speedScalar;
 
+    public float SpeedScalar => _speedScalar;
+
     public float Acceleration;
 
     private float _currentAcceleration;

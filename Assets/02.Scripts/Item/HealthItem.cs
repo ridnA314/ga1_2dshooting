@@ -10,6 +10,7 @@ public class HealthItem : Item
         if (_playerTransform.gameObject.TryGetComponent(out Player player))
         {
             player.GrowUpHealth(_healthBonus);
+            Debug.Log($"player hp: {player.Health}");
         }
     }
 }
