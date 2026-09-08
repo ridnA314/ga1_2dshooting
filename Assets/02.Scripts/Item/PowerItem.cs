@@ -10,6 +10,7 @@ public class PowerItem : Item
         if (_playerTransform.gameObject.TryGetComponent(out PlayerFire playerFire))
         {
             playerFire.GrowUpPower(_powerBonus);
+            Debug.Log($"player's move speed : {playerFire.PowerBonus}");
         }
     }
 }

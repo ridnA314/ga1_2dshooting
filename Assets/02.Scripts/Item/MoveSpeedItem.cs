@@ -10,6 +10,7 @@ public class MoveSpeedItem : Item
         if (_playerTransform.gameObject.TryGetComponent(out PlayerMove playerMove))
         {
             playerMove.GrowUpMoveSpeed(_moveSpeedBonus);
+            Debug.Log($"player's move speed : {playerMove.SpeedScalar}");
         }
     }
 }

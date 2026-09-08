@@ -25,6 +25,8 @@ public class PlayerMove : MonoBehaviour
     private float _timer;
     private bool _replaying;
 
+    public float SpeedScalar => _speedScalar;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
