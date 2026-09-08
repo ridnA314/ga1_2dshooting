@@ -8,6 +8,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private float _health = 100f;
 
+    public float Health => _health;
+
     [SerializeField]
     protected float _moveSpeedScalar;
 
