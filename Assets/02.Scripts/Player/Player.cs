@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _maxHealth = 100f;
 
+    [SerializeField]
+    private GameObject _deathEffectPrefab;
+
     private void Start()
     {
         _health = _maxHealth;
@@ -20,8 +23,14 @@ public class Player : MonoBehaviour
         _health -= amount;
         if (_health <= 0f)
         {
+            SpawnDeathEffect();
             Destroy(gameObject);
         }
+    }
+
+    public void SpawnDeathEffect()
+    {
+        Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
     }
 
     public void GrowUpHealth(float amount)
