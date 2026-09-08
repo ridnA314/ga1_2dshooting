@@ -8,19 +8,25 @@ public class FollowEnemy : Enemy
     {
         if (playerTransform == null) return;
         _playerTransform = playerTransform;
+
+        Rotation();
+
         _targetDirection = _playerTransform.position - transform.position;
         _targetDirection = _targetDirection.normalized;
-
-        float dx = _targetDirection.x - transform.position.x;
-        float dy = _targetDirection.y - transform.position.y;
-
-        float angle = Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public override void Move()
     {
         Vector2 distance = _targetDirection * _moveSpeedScalar * Time.deltaTime;
         transform.Translate(distance);
+    }
+
+    private void Rotation()
+    {
+        Vector2 targetDirection = _playerTransform.position - transform.position;
+
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 90f;
+        Vector3 targetAngle = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
+        transform.eulerAngles = targetAngle;
     }
 }
