@@ -5,6 +5,9 @@ public abstract class Enemy : MonoBehaviour
     private Animator _animator;
     static readonly int ANIM_PARAM = Animator.StringToHash("Hit");
 
+    //ToDo: play when Enemy is attacked
+    private AudioSource _damgedAudioSource;
+
     [SerializeField]
     private float _health = 100f;
 
@@ -30,6 +33,7 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _damgedAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,13 +57,14 @@ public abstract class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        _damgedAudioSource.Play();
         _animator.SetTrigger(ANIM_PARAM);
         _health -= damage;
         if (_health <= 0)
         {
             SpawnDeathEffect();
-
             DropItem();
+
             Destroy(gameObject);
         }
     }
