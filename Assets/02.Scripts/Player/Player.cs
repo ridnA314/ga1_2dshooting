@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     private GameObject _deathEffectPrefab;
 
     private Animator _animator;
-    static readonly int ANIM_PARAM = Animator.StringToHash("isTransparency");
+    static readonly int ANIM_PARAM_TRANPAR = Animator.StringToHash("isTransparency");
+    static readonly int ANIM_PARAM_HIT = Animator.StringToHash("Hit");
 
     private AudioSource _damgedAudioSource;
 
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        _animator.SetTrigger(ANIM_PARAM_HIT);
         _damgedAudioSource.Play();
         _health -= amount;
         if (_health <= 0f)
@@ -72,13 +74,13 @@ public class Player : MonoBehaviour
     public void Transparency(float time)
     {
         _isTransparency = true;
-        _animator.SetBool(ANIM_PARAM, true);
+        _animator.SetBool(ANIM_PARAM_TRANPAR, true);
         _transparencyTimer = time;
     }
 
     private void UnTransparency()
     {
         _isTransparency = false;
-        _animator.SetBool(ANIM_PARAM, false);
+        _animator.SetBool(ANIM_PARAM_TRANPAR, false);
     }
 }
