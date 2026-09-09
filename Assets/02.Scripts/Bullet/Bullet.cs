@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private AudioSource _audioSource;
+
     [SerializeField]
     private float _power;
 
@@ -10,6 +12,12 @@ public class Bullet : MonoBehaviour
     private float _moveSpeedScalar;
 
     private float _bonusPowerOfPlayer = 0f;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+    }
 
     private void Update()
     {
