@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     private Animator _animator;
     static readonly int ANIM_PARAM = Animator.StringToHash("isTransparency");
 
+    private AudioSource _damgedAudioSource;
+
     private float _transparencyTimer;
     private bool _isTransparency;
     public bool IsTransparency => _isTransparency;
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _damgedAudioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        _damgedAudioSource.Play();
         _health -= amount;
         if (_health <= 0f)
         {

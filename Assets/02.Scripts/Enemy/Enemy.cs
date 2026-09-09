@@ -5,7 +5,6 @@ public abstract class Enemy : MonoBehaviour
     private Animator _animator;
     static readonly int ANIM_PARAM = Animator.StringToHash("Hit");
 
-    //ToDo: play when Enemy is attacked
     private AudioSource _damgedAudioSource;
 
     [SerializeField]
