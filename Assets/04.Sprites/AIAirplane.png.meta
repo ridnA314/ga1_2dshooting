@@ -1,0 +1,792 @@
+fileFormatVersion: 2
+guid: 2097589a0e46e4f41b3b8dcfea6981d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7633601316023384047
+    second: AIAirplane_0
+  - first:
+      213: 6573079045521465831
+    second: AIAirplane_1
+  - first:
+      213: -2867171477710916106
+    second: AIAirplane_2
+  - first:
+      213: 2186910314731429738
+    second: AIAirplane_3
+  - first:
+      213: 1844115487036212475
+    second: AIAirplane_4
+  - first:
+      213: -5163777491825052700
+    second: AIAirplane_5
+  - first:
+      213: 9027273131171949050
+    second: AIAirplane_6
+  - first:
+      213: -1590115544252926283
+    second: AIAirplane_7
+  - first:
+      213: -4916436085089717438
+    second: AIAirplane_8
+  - first:
+      213: 1541075165079202437
+    second: AIAirplane_9
+  - first:
+      213: -6249959124139120490
+    second: AIAirplane_10
+  - first:
+      213: 519622767041863008
+    second: AIAirplane_11
+  - first:
+      213: 3051996319364254455
+    second: AIAirplane_12
+  - first:
+      213: 2781384924271462988
+    second: AIAirplane_13
+  - first:
+      213: -3369133566380583185
+    second: AIAirplane_14
+  - first:
+      213: -4901582969478305198
+    second: AIAirplane_15
+  - first:
+      213: 888344053598932270
+    second: AIAirplane_16
+  - first:
+      213: -4306563010541100325
+    second: AIAirplane_17
+  - first:
+      213: -9051644195655532074
+    second: AIAirplane_18
+  - first:
+      213: 7954132998785898738
+    second: AIAirplane_19
+  - first:
+      213: -6078095406639066161
+    second: AIAirplane_20
+  - first:
+      213: -3802074920630599854
+    second: AIAirplane_21
+  - first:
+      213: 2780768214545190818
+    second: AIAirplane_22
+  - first:
+      213: 2318980111046944108
+    second: AIAirplane_23
+  - first:
+      213: -5915803078161969948
+    second: AIAirplane_24
+  - first:
+      213: -7804783890341371940
+    second: AIAirplane_25
+  - first:
+      213: -6565033704660811268
+    second: AIAirplane_26
+  - first:
+      213: -3998640729973945129
+    second: AIAirplane_27
+  - first:
+      213: -5206626618383847424
+    second: AIAirplane_28
+  - first:
+      213: 5662329878738647681
+    second: AIAirplane_29
+  - first:
+      213: -8690327059250936000
+    second: AIAirplane_30
+  - first:
+      213: 1542067531797169667
+    second: AIAirplane_31
+  - first:
+      213: -4316271370850382989
+    second: AIAirplane_32
+  - first:
+      213: -7530325140153064323
+    second: AIAirplane_33
+  - first:
+      213: -103924643922912270
+    second: AIAirplane_34
+  - first:
+      213: -437212463759825454
+    second: AIAirplane_35
+  - first:
+      213: 4555338977261268190
+    second: AIAirplane_36
+  - first:
+      213: -1739753876252087234
+    second: AIAirplane_37
+  - first:
+      213: 593537380020088373
+    second: AIAirplane_38
+  - first:
+      213: -9045127065834751938
+    second: AIAirplane_39
+  - first:
+      213: -7275634746762845601
+    second: AIAirplane_40
+  - first:
+      213: -3127485726732885107
+    second: AIAirplane_41
+  - first:
+      213: 2000749580169899683
+    second: AIAirplane_42
+  - first:
+      213: -2663724542944482617
+    second: AIAirplane_43
+  - first:
+      213: -1231790656336800927
+    second: AIAirplane_44
+  - first:
+      213: -9068061654176897646
+    second: AIAirplane_45
+  - first:
+      213: 8942165627348717041
+    second: AIAirplane_46
+  - first:
+      213: -7901244104461583674
+    second: AIAirplane_47
+  - first:
+      213: -1938915533161614806
+    second: AIAirplane_48
+  - first:
+      213: -4545329084220196864
+    second: AIAirplane_49
+  - first:
+      213: -7756822483540263995
+    second: AIAirplane_50
+  - first:
+      213: -1874721370245330910
+    second: AIAirplane_51
+  - first:
+      213: 318656204616693591
+    second: AIAirplane_52
+  - first:
+      213: -7123894713186574333
+    second: AIAirplane_53
+  - first:
+      213: -6042238520822655064
+    second: AIAirplane_54
+  - first:
+      213: -3768650213843491101
+    second: AIAirplane_55
+  - first:
+      213: 3311743803321901164
+    second: AIAirplane_56
+  - first:
+      213: 7770818311388366381
+    second: AIAirplane_57
+  - first:
+      213: 8878801945974312661
+    second: AIAirplane_58
+  - first:
+      213: -1033804457076375612
+    second: AIAirplane_59
+  - first:
+      213: 6748186936508857521
+    second: AIAirplane_60
+  - first:
+      213: 6124652374400698215
+    second: AIAirplane_61
+  - first:
+      213: 605127508268734155
+    second: AIAirplane_62
+  - first:
+      213: -4760711291636811999
+    second: AIAirplane_63
+  - first:
+      213: -7754469910039034782
+    second: AIAirplane_64
+  - first:
+      213: 3159314392682223558
+    second: AIAirplane_65
+  - first:
+      213: 1385439620187822438
+    second: AIAirplane_66
+  - first:
+      213: 5390493074542955493
+    second: AIAirplane_67
+  - first:
+      213: -8649077589194809694
+    second: AIAirplane_68
+  - first:
+      213: 6190414576279442588
+    second: AIAirplane_69
+  - first:
+      213: -2755324313124256935
+    second: AIAirplane_70
+  - first:
+      213: 377969636833460903
+    second: AIAirplane_71
+  - first:
+      213: 6557138574671608056
+    second: AIAirplane_72
+  - first:
+      213: 8278124883392364692
+    second: AIAirplane_73
+  - first:
+      213: 5489579888933471314
+    second: AIAirplane_74
+  - first:
+      213: 8301160882743437890
+    second: AIAirplane_75
+  - first:
+      213: 7049318364811382345
+    second: AIAirplane_76
+  - first:
+      213: 6530642910193697602
+    second: AIAirplane_77
+  - first:
+      213: 1037120136165782217
+    second: AIAirplane_78
+  - first:
+      213: -7811639623787302449
+    second: AIAirplane_79
+  - first:
+      213: -1254692698452590471
+    second: AIAirplane_80
+  - first:
+      213: -4188699613939743570
+    second: AIAirplane_81
+  - first:
+      213: 6820442624493856387
+    second: AIAirplane_82
+  - first:
+      213: -9134496018749905149
+    second: AIAirplane_83
+  - first:
+      213: -6569620843152502447
+    second: AIAirplane_84
+  - first:
+      213: 4331906674866114395
+    second: AIAirplane_85
+  - first:
+      213: 8990402758738050578
+    second: AIAirplane_86
+  - first:
+      213: 3297804126463322798
+    second: AIAirplane_87
+  - first:
+      213: -528299223231027630
+    second: AIAirplane_88
+  - first:
+      213: -1482886387273727633
+    second: AIAirplane_89
+  - first:
+      213: -6457670085366531041
+    second: AIAirplane_90
+  - first:
+      213: 902045247212096633
+    second: AIAirplane_91
+  - first:
+      213: 4065599519709581839
+    second: AIAirplane_92
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AIAirplane_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 811
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118c8713c00001690800000000000000
+      internalID: -7633601316023384047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_1
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 811
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e1eed4f094483b50800000000000000
+      internalID: 6573079045521465831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_2
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 811
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5b8e06bb2c538d0800000000000000
+      internalID: -2867171477710916106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_3
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 811
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f54313857795e10800000000000000
+      internalID: 2186910314731429738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 541
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf40791d34d979910800000000000000
+      internalID: 1844115487036212475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_5
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 541
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e33c94eab39658b0800000000000000
+      internalID: -5163777491825052700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_6
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 541
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9aee19511574d70800000000000000
+      internalID: 9027273131171949050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_7
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 541
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b63af85656cee9e0800000000000000
+      internalID: -1590115544252926283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 271
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243b053dd6f45cbb0800000000000000
+      internalID: -4916436085089717438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_9
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 271
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ae8ba92bff26510800000000000000
+      internalID: 1541075165079202437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_10
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 271
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698e9f05a4fa349a0800000000000000
+      internalID: -6249959124139120490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_11
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 271
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d5cbe4722163700800000000000000
+      internalID: 519622767041863008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fa81877b7eda5a20800000000000000
+      internalID: 3051996319364254455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_13
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 1
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ac3da2ad6799620800000000000000
+      internalID: 2781384924271462988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_14
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe65a0f2fde6e31d0800000000000000
+      internalID: -3369133566380583185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AIAirplane_15
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1
+        width: 363
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a242b42441afbb0800000000000000
+      internalID: -4901582969478305198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e309d032e730107469474347bb56692f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":363.0,"y":270.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      AIAirplane_0: -7633601316023384047
+      AIAirplane_1: 6573079045521465831
+      AIAirplane_10: -6249959124139120490
+      AIAirplane_11: 519622767041863008
+      AIAirplane_12: 3051996319364254455
+      AIAirplane_13: 2781384924271462988
+      AIAirplane_14: -3369133566380583185
+      AIAirplane_15: -4901582969478305198
+      AIAirplane_2: -2867171477710916106
+      AIAirplane_3: 2186910314731429738
+      AIAirplane_4: 1844115487036212475
+      AIAirplane_5: -5163777491825052700
+      AIAirplane_6: 9027273131171949050
+      AIAirplane_7: -1590115544252926283
+      AIAirplane_8: -4916436085089717438
+      AIAirplane_9: 1541075165079202437
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
