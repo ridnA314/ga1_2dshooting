@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
     private Item _healthItemPrefab;
     private Item _attackSpeedItemPrefab;
     private Item _moveSpeedItemPrefab;
+    private Item _transparencyItemPrefab;
 
     [SerializeField]
     private GameObject _deathEffectPrefab;
@@ -38,12 +39,14 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Initialize(Transform playerTransform);
 
-    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem, Item moveSpeedItem)
+    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem, Item moveSpeedItem,
+        Item transparencyItem)
     {
         _powerItemPrefab = powerItem;
         _healthItemPrefab = healthItem;
         _attackSpeedItemPrefab = attackSpeedItem;
         _moveSpeedItemPrefab = moveSpeedItem;
+        _transparencyItemPrefab = transparencyItem;
     }
 
     public abstract void Move();
@@ -72,10 +75,11 @@ public abstract class Enemy : MonoBehaviour
         {
             if (other.TryGetComponent(out Player player))
             {
-                player.TakeDamage(_power);
-            }
+                if (player.IsTransparency) return;
 
-            Destroy(gameObject);
+                player.TakeDamage(_power);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -87,21 +91,25 @@ public abstract class Enemy : MonoBehaviour
         if (probability > 40) return;
 
         Item item;
-        if (probability <= 10)
+        if (probability <= 8)
         {
             item = _powerItemPrefab;
         }
-        else if (probability <= 20)
+        else if (probability <= 16)
         {
             item = _healthItemPrefab;
         }
-        else if (probability <= 30)
+        else if (probability <= 24)
         {
             item = _moveSpeedItemPrefab;
         }
-        else
+        else if (probability <= 32)
         {
             item = _attackSpeedItemPrefab;
+        }
+        else
+        {
+            item = _transparencyItemPrefab;
         }
 
         item = Instantiate(item);

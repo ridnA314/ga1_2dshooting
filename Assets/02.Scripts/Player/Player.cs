@@ -13,9 +13,32 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _deathEffectPrefab;
 
+    private Animator _animator;
+    static readonly int ANIM_PARAM = Animator.StringToHash("isTransparency");
+
+    private float _transparencyTimer;
+    private bool _isTransparency;
+    public bool IsTransparency => _isTransparency;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     private void Start()
     {
         _health = _maxHealth;
+        _transparencyTimer = 0f;
+        _isTransparency = false;
+    }
+
+    private void Update()
+    {
+        _transparencyTimer -= Time.deltaTime;
+        if (_transparencyTimer <= 0f && _isTransparency)
+        {
+            UnTransparency();
+        }
     }
 
     public void TakeDamage(float amount)
@@ -40,5 +63,18 @@ public class Player : MonoBehaviour
         {
             _health = _maxHealth;
         }
+    }
+
+    public void Transparency(float time)
+    {
+        _isTransparency = true;
+        _animator.SetBool(ANIM_PARAM, true);
+        _transparencyTimer = time;
+    }
+
+    private void UnTransparency()
+    {
+        _isTransparency = false;
+        _animator.SetBool(ANIM_PARAM, false);
     }
 }

@@ -36,6 +36,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Item _moveSpeedItemPrefab;
 
+    [Header("Transparency Item")]
+    [SerializeField]
+    private Item _transparencyItemPrefab;
+
     [Header("탐색할 플레이어")]
     [SerializeField]
     private Transform _playerTransform;
@@ -68,7 +72,8 @@ public class EnemySpawner : MonoBehaviour
         enemy.Initialize(_playerTransform);
 
         //scriptable object로
-        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab);
+        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab,
+            _transparencyItemPrefab);
         enemy.transform.position = transform.position;
     }
 
