@@ -72,7 +72,7 @@ public abstract class Enemy : MonoBehaviour
             SpawnDeathEffect();
             DropItem();
 
-            ScoreManager.Instatnce.AddScore(100);
+            ScoreManager.Instance.AddScore(100);
 
             Destroy(gameObject);
         }
