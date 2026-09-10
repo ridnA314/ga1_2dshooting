@@ -7,10 +7,12 @@ public class MoveSpeedItem : Item
 
     protected override void GiveEffect()
     {
+        /*
         if (_playerTransform.gameObject.TryGetComponent(out PlayerMove playerMove))
         {
             playerMove.GrowUpMoveSpeed(_moveSpeedBonus);
             Debug.Log($"player move speed: {playerMove.SpeedScalar}");
         }
+        */
     }
 }

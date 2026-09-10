@@ -22,7 +22,7 @@ public class PlayerFire : MonoBehaviour
     private void Awake()
     {
         _timer = _attackCoolTime;
-        _isAutoFire = false;
+        _isAutoFire = true;
     }
 
     private void Update()
