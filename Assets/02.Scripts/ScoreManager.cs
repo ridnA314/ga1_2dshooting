@@ -14,6 +14,8 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int score)
     {
+        if (score < 0) return;
+
         _currrentScore += score;
         if (_currrentScore > _bestScore)
         {
