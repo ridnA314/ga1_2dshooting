@@ -7,10 +7,13 @@ public abstract class Enemy : MonoBehaviour
 
     private AudioSource _damgedAudioSource;
 
-    [SerializeField]
-    private float _health = 100f;
-
+    private float _health;
     public float Health => _health;
+
+    [SerializeField]
+    private float _maxHealth = 100f;
+
+    public float MaxHealth => _maxHealth;
 
     [SerializeField]
     protected float _moveSpeedScalar;
@@ -33,6 +36,11 @@ public abstract class Enemy : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _damgedAudioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        _health = _maxHealth;
     }
 
     private void Update()

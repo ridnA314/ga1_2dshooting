@@ -1,18 +1,20 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerAutoMove : MonoBehaviour
 {
-    // require field
     private Animator _animator;
     static readonly int ANIM_PARAM = Animator.StringToHash("x");
 
     [SerializeField]
     private float _speedScalar;
 
-    public float SpeedScalar => _speedScalar;
+    [SerializeField]
+    private float _distanceScoreCoefficient;
 
-    public float Acceleration;
+    [SerializeField]
+    private float _acceleration;
 
     private float _currentAcceleration;
 
@@ -21,19 +23,9 @@ public class PlayerMove : MonoBehaviour
     private float _cameraStartY;
     private float _cameraHalfY;
 
-    private List<Vector2> _moveCommandRecords;
-    private List<KeyCode> _acceleationCommandRecords;
-    private float _timer;
-    private bool _replaying;
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
-        _moveCommandRecords = new List<Vector2>();
-        _acceleationCommandRecords = new List<KeyCode>();
-        _timer = 0;
-        _replaying = false;
 
         Camera cam = Camera.main;
         Vector2 cameraCenter = cam.transform.position;
@@ -47,54 +39,62 @@ public class PlayerMove : MonoBehaviour
         _cameraHalfY = cameraCenter.y;
     }
 
-    // 목적 : 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다
-    // Update는 매 프레임마다 실행 -> 초당 프레임 실행은 별도 설정이 없는 경우 성능 내에서 가능한 밚이
     private void Update()
     {
-        if (!_replaying)
-        {
-            _timer += Time.deltaTime;
-            Vector2 speed = GetSpeed();
-            Move(speed);
-        }
+        Vector2 direction = GetTargetVector();
+        Vector2 speed = direction * _speedScalar;
+        speed = Accelate(speed);
+        Move(speed);
     }
 
-    private Vector2 GetSpeed()
+    private Vector2 GetTargetVector()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length <= 0) return Vector2.zero;
 
-        Vector2 direction = new Vector2(h, v).normalized;
+        Array.Sort(enemies, (i, j) => CalculateScore(j).CompareTo(CalculateScore(i)));
+
+        Vector2 direction = enemies[0].transform.position - transform.position;
 
         _animator.SetInteger(ANIM_PARAM, (int)direction.x);
 
-        KeyCode accelerationKey = KeyCode.None;
-        Vector2 speed = direction * _speedScalar;
-        speed = Accelate(speed, out KeyCode key);
-
-        if (_timer >= 0.1f)
-        {
-            _moveCommandRecords.Add(speed);
-            _acceleationCommandRecords.Add(key);
-            _timer = 0f;
-        }
-
-        return speed;
+        return direction;
     }
 
-    private Vector2 Accelate(Vector2 speed, out KeyCode key)
+    private int CalculateScore(GameObject obj)
+    {
+        if (obj.TryGetComponent(out Enemy enemy))
+        {
+            return -70;
+        }
+
+        int score = (int)((enemy.Health / enemy.MaxHealth) * 100);
+        score = 100 - score;
+
+        Vector3 distanceVector = enemy.transform.position - transform.position;
+        float distance = distanceVector.magnitude;
+        if (distance <= _speedScalar * _distanceScoreCoefficient)
+        {
+            score -= 20;
+        }
+        else if (distance >= (_cameraHalfY - _cameraStartY))
+        {
+            score -= 50;
+        }
+
+        return score;
+    }
+
+    private Vector2 Accelate(Vector2 speed)
     {
         _currentAcceleration = 1f;
-        key = KeyCode.None;
         if (Input.GetKey(KeyCode.E))
         {
-            key = KeyCode.E;
-            _currentAcceleration = Acceleration;
+            _currentAcceleration = _acceleration;
         }
         else if (Input.GetKey(KeyCode.Q))
         {
-            key = KeyCode.Q;
-            _currentAcceleration = 1f / Acceleration;
+            _currentAcceleration = 1f / _acceleration;
         }
 
         Vector2 acceleratedSpeed = speed * _currentAcceleration;
