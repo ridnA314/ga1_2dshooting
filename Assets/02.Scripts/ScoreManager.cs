@@ -8,7 +8,8 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance => _instance;
 
     private int _bestScore;
-    private int _currrentScore;
+    private int _currrentScore = 0;
+    private int _lastRefreshScore = -1;
 
     [SerializeField]
     private TextMeshProUGUI _bestScoreTextUI;
@@ -45,7 +46,11 @@ public class ScoreManager : MonoBehaviour
 
     private void Refresh()
     {
+        if (_lastRefreshScore == _currrentScore) return;
+
         _bestScoreTextUI.text = $"BestScore: {_bestScore}";
         _currrentScoreTextUI.text = $"Score: {_currrentScore}";
+
+        _lastRefreshScore = _currrentScore;
     }
 }
