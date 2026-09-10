@@ -1,8 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instatnce;
+
     private int _bestScore;
     private int _currrentScore;
 
@@ -11,6 +14,11 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI _currrentScoreTextUI;
+
+    private void Awake()
+    {
+        Instatnce = this;
+    }
 
     public void AddScore(int score)
     {
