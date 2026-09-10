@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instatnce;
+    private static ScoreManager _instatnce = null;
+    public static ScoreManager Instatnce => _instatnce;
 
     private int _bestScore;
     private int _currrentScore;
@@ -17,7 +18,13 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        Instatnce = this;
+        if (_instatnce != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instatnce = this;
     }
 
     public void AddScore(int score)
