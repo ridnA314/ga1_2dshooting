@@ -10,15 +10,31 @@ public class PlayerAutoMove : MonoBehaviour
     private void Update()
     {
         //1.get Target
-        GameObject target = GameObject.FindGameObjectWithTag("Enemy");
-        if (target == null) return;
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+        if (targets.Length == 0) return;
+
+        GameObject target = targets[0];
+        float minDistance = float.MaxValue;
+        float distance;
+        //1-1. find nearest target
+        foreach (GameObject enemy in targets)
+        {
+            // calculate distance
+            distance = Vector2.Distance(transform.position, target.transform.position);
+            if (minDistance > distance)
+            {
+                // change target
+                minDistance = distance;
+                target = enemy;
+            }
+        }
 
         //2. get direction
         Vector3 direction = target.transform.position - transform.position;
         direction.Normalize();
         direction.y = 0;
 
-        //3.속력에 맞게 이동
+        //3.move by speed
         transform.position += direction * _speedScalar * Time.deltaTime;
     }
 }
