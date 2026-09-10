@@ -9,7 +9,8 @@ public class ScoreManager : MonoBehaviour
 
     private int _bestScore;
     private int _currrentScore = 0;
-    private int _lastRefreshScore = -1;
+
+    private const string SaveKey = "BestScore";
 
     [SerializeField]
     private TextMeshProUGUI _bestScoreTextUI;
@@ -28,6 +29,12 @@ public class ScoreManager : MonoBehaviour
         _instance = this;
     }
 
+    private void Start()
+    {
+        _bestScore = PlayerPrefs.GetInt(SaveKey, 0);
+        Refresh();
+    }
+
     public void AddScore(int score)
     {
         if (score < 0) return;
@@ -36,21 +43,16 @@ public class ScoreManager : MonoBehaviour
         if (_currrentScore > _bestScore)
         {
             _bestScore = _currrentScore;
+            PlayerPrefs.SetInt(SaveKey, _bestScore);
+            PlayerPrefs.Save();
         }
-    }
 
-    private void Update()
-    {
         Refresh();
     }
 
     private void Refresh()
     {
-        if (_lastRefreshScore == _currrentScore) return;
-
         _bestScoreTextUI.text = $"BestScore: {_bestScore}";
         _currrentScoreTextUI.text = $"Score: {_currrentScore}";
-
-        _lastRefreshScore = _currrentScore;
     }
 }
