@@ -16,7 +16,17 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _audioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+    }
+
+    public void OnSpawn()
+    {
+        PlaySound();
+    }
+
+    private void PlaySound()
+    {
+        _audioSource.pitch = UnityEngine.Random.Range(1f, 3f);
+        _audioSource.Play();
     }
 
     private void Update()
@@ -45,6 +55,6 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(_power + _bonusPowerOfPlayer);
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
