@@ -6,19 +6,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _spawnInterval = 3f;
 
+    [SerializeField]
+    private EnemySpawnData[] _spawnDatas;
+
     private float _timer = 2f;
-
-    [Header("Downward")]
-    [SerializeField]
-    private Enemy _downWardEnemyPrefab;
-
-    [Header("Aimed")]
-    [SerializeField]
-    private Enemy _aimedEnemyPrefab;
-
-    [Header("Homing")]
-    [SerializeField]
-    private Enemy _homingEnemyPrefab;
 
     [Header("Power Item")]
     [SerializeField]
@@ -65,36 +56,43 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         if (_playerTransform == null) return;
-        if (_homingEnemyPrefab == null || _aimedEnemyPrefab == null || _downWardEnemyPrefab == null) return;
+        if (_spawnDatas.Length <= 0) return;
 
-        Enemy enemy = GetEnemyPrefabByProbability();
-        enemy = Instantiate(enemy);
-        enemy.Initialize(_playerTransform);
-
-        //scriptable object로
-        enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab,
-            _transparencyItemPrefab);
-        enemy.transform.position = transform.position;
-    }
-
-    private Enemy GetEnemyPrefabByProbability()
-    {
-        if (_probabilitiesForSpawnEnemy.Length < 3) return _downWardEnemyPrefab;
-
-        int probability = UnityEngine.Random.Range(0, 100);
+        GameObject enemyObejct = null;
 
         //Todo: scritable Object를 사용해서 리펙토잉
-        //reson1 : 각 애너미 스폰 확률 뭐가 뭔지 모름
-        if (probability <= _probabilitiesForSpawnEnemy[2])
+
+        //1. summation of all weight
+        int totalWeight = 0;
+        foreach (EnemySpawnData data in _spawnDatas)
         {
-            return _homingEnemyPrefab;
+            totalWeight += data.Weight;
         }
 
-        if (probability <= _probabilitiesForSpawnEnemy[1] + _probabilitiesForSpawnEnemy[2])
+        //2. 전체 가중치 범위에서 random한 정수 추출
+        int randomWeight = Random.Range(0, totalWeight);
+
+        int cumulativeWeight = 0;
+        //3. 가중치를 누적하면서 선택된 구간 탐색
+        foreach (EnemySpawnData data in _spawnDatas)
         {
-            return _aimedEnemyPrefab;
+            cumulativeWeight += data.Weight;
+            if (randomWeight < cumulativeWeight)
+            {
+                enemyObejct = Instantiate(data.EnemyPrefab);
+                enemyObejct.transform.position = transform.position;
+                break;
+            }
         }
 
-        return _downWardEnemyPrefab;
+        if (enemyObejct.TryGetComponent(out Enemy enemy))
+        {
+            enemy.Initialize(_playerTransform);
+
+            //scriptable object로
+            enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab,
+                _transparencyItemPrefab);
+            enemy.transform.position = transform.position;
+        }
     }
 }
