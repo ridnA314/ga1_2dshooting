@@ -38,7 +38,8 @@ public class EnemySpawner : MonoBehaviour
         if (_playerTransform == null) return;
         if (_spawnDataTable.Datas.Length <= 0) return;
 
-        GameObject enemyObejct = null;
+        Enemy enemy = null;
+        EnemyType selectedType;
 
         //Todo: scritable Object를 사용해서 리펙토잉
 
@@ -59,16 +60,14 @@ public class EnemySpawner : MonoBehaviour
             cumulativeWeight += data.Weight;
             if (randomWeight < cumulativeWeight)
             {
-                enemyObejct = Instantiate(data.EnemyPrefab);
-                enemyObejct.transform.position = transform.position;
-                break;
+                if (data.EnemyPrefab.TryGetComponent(out Enemy selectedEnemyData))
+                {
+                    selectedType = selectedEnemyData.Type;
+                    enemy = EnemyPool.Instance.GetEnemy(selectedType, _playerTransform, _itemDropDataTable);
+                    enemy.transform.position = transform.position;
+                    break;
+                }
             }
-        }
-
-        if (enemyObejct.TryGetComponent(out Enemy enemy))
-        {
-            enemy.Initialize(_playerTransform);
-            enemy.SetItems(_itemDropDataTable);
         }
     }
 }

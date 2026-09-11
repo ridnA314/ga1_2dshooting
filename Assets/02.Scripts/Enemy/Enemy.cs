@@ -7,6 +7,11 @@ public abstract class Enemy : MonoBehaviour
 
     private AudioSource _damgedAudioSource;
 
+    [SerializeField]
+    private EnemyType _type;
+
+    public EnemyType Type => _type;
+
     private float _health;
     public float Health => _health;
 
@@ -47,6 +52,13 @@ public abstract class Enemy : MonoBehaviour
         Move();
     }
 
+    public void OnSpawn(Transform playerTransform, ItemDropDataTableSO itemDropDataTable)
+    {
+        Initialize(playerTransform);
+        SetItems(itemDropDataTable);
+        _health = _maxHealth;
+    }
+
     public abstract void Initialize(Transform playerTransform);
 
     public void SetItems(ItemDropDataTableSO itemDropDataTable)
@@ -68,7 +80,7 @@ public abstract class Enemy : MonoBehaviour
 
             ScoreManager.Instance.AddScore(100);
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -86,7 +98,7 @@ public abstract class Enemy : MonoBehaviour
                 if (player.IsTransparency) return;
 
                 player.TakeDamage(_power);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
