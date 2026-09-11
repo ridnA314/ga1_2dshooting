@@ -43,7 +43,7 @@ public class EnemyPool : MonoBehaviour
 
     public Enemy GetEnemy(EnemyType enemyType, Transform playerTransform, ItemDropDataTableSO itemDropDataTable)
     {
-        for (int i = 0; i < _pool.Length; i++)
+        for (int i = 0; i < _pool.GetLength(0); i++)
         {
             if (_pool[i, 0].Type != enemyType)
             {

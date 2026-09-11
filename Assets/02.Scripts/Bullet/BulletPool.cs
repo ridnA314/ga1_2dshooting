@@ -46,7 +46,7 @@ public class BulletPool : MonoBehaviour
 
     public Bullet GetBullet(BulletType bulletType, float powerBonus)
     {
-        for (int i = 0; i < _pool.Length; i++) //loop by type
+        for (int i = 0; i < _pool.GetLength(0); i++) //loop by type
         {
             if (_pool[i, 0].Type != bulletType) //first element's type not equal target type
             {
