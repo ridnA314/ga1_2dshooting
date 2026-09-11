@@ -135,9 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18a3649f7458b446833e6bb9f6ae069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
-  _health: 100
+  _maxHealth: 100
   _moveSpeedScalar: 3
   _power: 5
+  _itemDropProbability: 40
   _deathEffectPrefab: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
 --- !u!95 &-6841842942987160832
 Animator:

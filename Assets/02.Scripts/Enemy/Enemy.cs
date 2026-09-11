@@ -21,11 +21,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private float _power = 10f;
 
-    private Item _powerItemPrefab;
-    private Item _healthItemPrefab;
-    private Item _attackSpeedItemPrefab;
-    private Item _moveSpeedItemPrefab;
-    private Item _transparencyItemPrefab;
+    [SerializeField]
+    private int _itemDropProbability = 30;
+
+    private ItemDropDataTableSO _itemDropDataTable;
 
     [SerializeField]
     private GameObject _deathEffectPrefab;
@@ -50,14 +49,9 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Initialize(Transform playerTransform);
 
-    public void SetItems(Item powerItem, Item healthItem, Item attackSpeedItem, Item moveSpeedItem,
-        Item transparencyItem)
+    public void SetItems(ItemDropDataTableSO itemDropDataTable)
     {
-        _powerItemPrefab = powerItem;
-        _healthItemPrefab = healthItem;
-        _attackSpeedItemPrefab = attackSpeedItem;
-        _moveSpeedItemPrefab = moveSpeedItem;
-        _transparencyItemPrefab = transparencyItem;
+        _itemDropDataTable = itemDropDataTable;
     }
 
     public abstract void Move();
@@ -101,33 +95,33 @@ public abstract class Enemy : MonoBehaviour
     {
         if (_playerTransform == null) return;
 
-        int probability = UnityEngine.Random.Range(0, 100);
-        if (probability > 40) return;
+        int probability = Random.Range(0, 100);
+        if (probability > _itemDropProbability) return;
 
-        Item item;
-        if (probability <= 8)
+        GameObject itemGameObject = null;
+        int totalWeight = 0;
+        foreach (ItemDropData data in _itemDropDataTable.Datas)
         {
-            item = _powerItemPrefab;
-        }
-        else if (probability <= 16)
-        {
-            item = _healthItemPrefab;
-        }
-        else if (probability <= 24)
-        {
-            item = _moveSpeedItemPrefab;
-        }
-        else if (probability <= 32)
-        {
-            item = _attackSpeedItemPrefab;
-        }
-        else
-        {
-            item = _transparencyItemPrefab;
+            totalWeight += data.Weight;
         }
 
-        item = Instantiate(item);
-        item.Initialize(_playerTransform);
-        item.transform.position = transform.position;
+        int randomWeight = Random.Range(0, totalWeight);
+
+        int cumulativeWeight = 0;
+        foreach (ItemDropData data in _itemDropDataTable.Datas)
+        {
+            cumulativeWeight += data.Weight;
+            if (randomWeight < cumulativeWeight)
+            {
+                itemGameObject = Instantiate(data.ItemPrefab);
+                itemGameObject.transform.position = transform.position;
+                break;
+            }
+        }
+
+        if (itemGameObject.TryGetComponent(out Item item))
+        {
+            item.Initialize(_playerTransform);
+        }
     }
 }

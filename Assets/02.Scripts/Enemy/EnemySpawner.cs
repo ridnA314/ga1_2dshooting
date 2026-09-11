@@ -11,25 +11,9 @@ public class EnemySpawner : MonoBehaviour
 
     private float _timer = 2f;
 
-    [Header("Power Item")]
+    [Header("Item Drop Table")]
     [SerializeField]
-    private Item _powerItemPrefab;
-
-    [Header("Health Item")]
-    [SerializeField]
-    private Item _healthItemPrefab;
-
-    [Header("Attack Speed Item")]
-    [SerializeField]
-    private Item _attackSpeedItemPrefab;
-
-    [Header("Move Speed Item")]
-    [SerializeField]
-    private Item _moveSpeedItemPrefab;
-
-    [Header("Transparency Item")]
-    [SerializeField]
-    private Item _transparencyItemPrefab;
+    private ItemDropDataTableSO _itemDropDataTable;
 
     [Header("탐색할 플레이어")]
     [SerializeField]
@@ -84,11 +68,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyObejct.TryGetComponent(out Enemy enemy))
         {
             enemy.Initialize(_playerTransform);
-
-            //scriptable object로
-            enemy.SetItems(_powerItemPrefab, _healthItemPrefab, _attackSpeedItemPrefab, _moveSpeedItemPrefab,
-                _transparencyItemPrefab);
-            enemy.transform.position = transform.position;
+            enemy.SetItems(_itemDropDataTable);
         }
     }
 }
