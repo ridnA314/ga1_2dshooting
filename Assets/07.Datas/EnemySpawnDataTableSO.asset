@@ -17,5 +17,5 @@ MonoBehaviour:
     Weight: 40
   - EnemyPrefab: {fileID: 6628862896923024105, guid: f546285c9fec47d49a809a0e8922c4d5, type: 3}
     Weight: 30
-  - EnemyPrefab: {fileID: 6628862896923024105, guid: f546285c9fec47d49a809a0e8922c4d5, type: 3}
+  - EnemyPrefab: {fileID: 6628862896923024105, guid: ee5fbedadc055e14c832182fba67b4ca, type: 3}
     Weight: 20
