@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     private float _spawnInterval = 3f;
 
     [SerializeField]
-    private EnemySpawnData[] _spawnDatas;
+    private EnemySpawnDataTableSO _spawnDataTable;
 
     private float _timer = 2f;
 
@@ -35,10 +35,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Transform _playerTransform;
 
-    [Header("스폰 확률")]
-    [SerializeField]
-    private int[] _probabilitiesForSpawnEnemy;
-
     private void Update()
     {
         _timer += Time.deltaTime;
@@ -56,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         if (_playerTransform == null) return;
-        if (_spawnDatas.Length <= 0) return;
+        if (_spawnDataTable.Datas.Length <= 0) return;
 
         GameObject enemyObejct = null;
 
@@ -64,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
 
         //1. summation of all weight
         int totalWeight = 0;
-        foreach (EnemySpawnData data in _spawnDatas)
+        foreach (EnemySpawnData data in _spawnDataTable.Datas)
         {
             totalWeight += data.Weight;
         }
@@ -74,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
 
         int cumulativeWeight = 0;
         //3. 가중치를 누적하면서 선택된 구간 탐색
-        foreach (EnemySpawnData data in _spawnDatas)
+        foreach (EnemySpawnData data in _spawnDataTable.Datas)
         {
             cumulativeWeight += data.Weight;
             if (randomWeight < cumulativeWeight)

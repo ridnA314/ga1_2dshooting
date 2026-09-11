@@ -44,18 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664d1f334d84aea49aed062497f2842b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  _spawnInterval: 3.5
-  _spawnDatas:
-  - EnemyPrefab: {fileID: 6628862896923024105, guid: 34ef25e224050bb409121ebb509bf480, type: 3}
-    Weight: 80
-  - EnemyPrefab: {fileID: 6628862896923024105, guid: f546285c9fec47d49a809a0e8922c4d5, type: 3}
-    Weight: 40
-  - EnemyPrefab: {fileID: 6628862896923024105, guid: ee5fbedadc055e14c832182fba67b4ca, type: 3}
-    Weight: 20
+  _spawnInterval: 6
+  _spawnDataTable: {fileID: 11400000, guid: 2c9672c957ba7f84b9c3846a012513d9, type: 2}
   _powerItemPrefab: {fileID: 7056413410333432600, guid: b18b3e132df375f42bcb2443037aff5d, type: 3}
   _healthItemPrefab: {fileID: 4116633135805644247, guid: 04afc042c0de71240a873d1de14d60a8, type: 3}
   _attackSpeedItemPrefab: {fileID: 1449749091969160982, guid: 816946110b114e6419d58d820fcdbcc5, type: 3}
   _moveSpeedItemPrefab: {fileID: 7200644026656308278, guid: 93bf6eedd8db5064f8a31ecd04e228cd, type: 3}
   _transparencyItemPrefab: {fileID: 3624936867847463425, guid: 242a4eb6205e98b4baa64821628687e5, type: 3}
   _playerTransform: {fileID: 0}
-  _probabilitiesForSpawnEnemy: 320000001e00000014000000
