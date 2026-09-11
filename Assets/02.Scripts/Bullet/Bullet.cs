@@ -6,6 +6,11 @@ public class Bullet : MonoBehaviour
     private AudioSource _audioSource;
 
     [SerializeField]
+    private BulletType _type;
+
+    public BulletType Type => _type;
+
+    [SerializeField]
     private float _power;
 
     [SerializeField]
@@ -18,8 +23,9 @@ public class Bullet : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    public void OnSpawn()
+    public void OnSpawn(float powerBonus)
     {
+        _bonusPowerOfPlayer = powerBonus;
         PlaySound();
     }
 
@@ -32,11 +38,6 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         Move();
-    }
-
-    public void Initialize(float powerBonus)
-    {
-        _bonusPowerOfPlayer = powerBonus;
     }
 
     private void Move()

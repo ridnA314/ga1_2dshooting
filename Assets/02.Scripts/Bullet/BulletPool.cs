@@ -7,26 +7,16 @@ public class BulletPool : MonoBehaviour
 
     // Object Pooling : Prepare Pool of Object -> Use GameObject that in Pool When need it
     // required attribute
-    [Header("Main Bullet Prefab")]
+    [Header("Bullet Prefabs")]
     [SerializeField]
-    private Bullet _bulletPrefab;
+    private Bullet[] _bulletPrefabs;
 
-    [Header("Main Pool Size")]
+    [Header("Pool Size")]
     [SerializeField]
     private int _poolSize = 30;
 
-    [Header("Sub Bullet Prefab")]
-    [SerializeField]
-    private Bullet _subBulletPrefab;
-
-    [Header("Sub Pool Size")]
-    [SerializeField]
-    private int _subBulletPoolSize = 30;
-
     // The pool that contain created bullets
-    private Bullet[] _pool;
-
-    private Bullet[] _subBulletBool;
+    private Bullet[,] _pool;
 
     private void Awake()
     {
@@ -38,47 +28,41 @@ public class BulletPool : MonoBehaviour
 
         _instance = this;
 
-        //Create Pool as size of pool 
-        _pool = new Bullet[_poolSize];
-        for (int i = 0; i < _poolSize; i++)
+        int j;
+        int length = _bulletPrefabs.Length;
+        //Create Pool as size of pool and number of bullet's type
+        _pool = new Bullet[length, _poolSize];
+        for (int i = 0; i < length; i++)
         {
-            Bullet bullet = Instantiate(_bulletPrefab, transform);
-            bullet.gameObject.SetActive(false); //Deactive because do not use now
-            _pool[i] = bullet;
-        }
-
-        _subBulletBool = new Bullet[_subBulletPoolSize];
-        for (int i = 0; i < _subBulletPoolSize; i++)
-        {
-            Bullet bullet = Instantiate(_subBulletPrefab, transform);
-            bullet.gameObject.SetActive(false);
-            _subBulletBool[i] = bullet;
-        }
-    }
-
-    public Bullet GetBullet()
-    {
-        foreach (Bullet bullet in _pool)
-        {
-            if (!bullet.gameObject.activeSelf)
+            Bullet bulletPrefab = _bulletPrefabs[i];
+            for (j = 0; j < _poolSize; j++)
             {
-                bullet.gameObject.SetActive(true);
-                return bullet;
+                Bullet bullet = Instantiate(bulletPrefab, transform);
+                bullet.gameObject.SetActive(false); //Deactive because do not use now
+                _pool[i, j] = bullet;
             }
         }
-
-        return null;
     }
 
-    public Bullet GetSubBullet()
+    public Bullet GetBullet(BulletType bulletType, float powerBonus)
     {
-        foreach (Bullet bullet in _subBulletBool)
+        for (int i = 0; i < _pool.Length; i++) //loop by type
         {
-            if (!bullet.gameObject.activeSelf)
+            if (_pool[i, 0].Type != bulletType) //first element's type not equal target type
             {
-                bullet.gameObject.SetActive(true);
-                bullet.OnSpawn();
-                return bullet;
+                continue;
+            }
+
+            for (int j = 0; j < _poolSize; j++) //loop at bullet's pool of target type
+            {
+                Bullet bullet = _pool[i, j];
+
+                if (!bullet.gameObject.activeSelf)
+                {
+                    bullet.gameObject.SetActive(true);
+                    bullet.OnSpawn(powerBonus);
+                    return bullet;
+                }
             }
         }
 

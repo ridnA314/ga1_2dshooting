@@ -841,10 +841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3806e6b8e6d41284ab27b36c9eae197d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletPool
-  _bulletPrefab: {fileID: 5117428648197144484, guid: 109c1c622a891164ca90fddfc7c58657, type: 3}
+  _bulletPrefabs:
+  - {fileID: 5117428648197144484, guid: 109c1c622a891164ca90fddfc7c58657, type: 3}
+  - {fileID: 5117428648197144484, guid: 6597c26a33e3bd7498b4240fcfcf8eb8, type: 3}
   _poolSize: 30
-  _subBulletPrefab: {fileID: 5117428648197144484, guid: 6597c26a33e3bd7498b4240fcfcf8eb8, type: 3}
-  _subBulletPoolSize: 30
 --- !u!4 &357371994
 Transform:
   m_ObjectHideFlags: 0

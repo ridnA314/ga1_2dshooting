@@ -41,12 +41,10 @@ public class PlayerFire : MonoBehaviour
         if (_timer > _attackCoolTime)
         {
             //ToDo: Do not Direct creation -> Use Bullet in Pool
-            Bullet bulletL = BulletPool.Instance.GetBullet();
-            bulletL.Initialize(_powerBonus);
+            Bullet bulletL = BulletPool.Instance.GetBullet(BulletType.Main, _powerBonus);
             bulletL.transform.position = FirePointTransforms[0].position;
 
-            Bullet bulletR = BulletPool.Instance.GetBullet();
-            bulletR.Initialize(_powerBonus);
+            Bullet bulletR = BulletPool.Instance.GetBullet(BulletType.Main, _powerBonus);
             bulletR.transform.position = FirePointTransforms[1].position;
 
             SupportFire();
@@ -57,12 +55,10 @@ public class PlayerFire : MonoBehaviour
 
     private void SupportFire()
     {
-        Bullet supportBulletL = BulletPool.Instance.GetSubBullet();
-        supportBulletL.Initialize(_powerBonus);
+        Bullet supportBulletL = BulletPool.Instance.GetBullet(BulletType.Sub, _powerBonus);
         supportBulletL.transform.position = FirePointTransforms[2].position;
 
-        Bullet supportBulletR = BulletPool.Instance.GetSubBullet();
-        supportBulletL.Initialize(_powerBonus);
+        Bullet supportBulletR = BulletPool.Instance.GetBullet(BulletType.Sub, _powerBonus);
         supportBulletR.transform.position = FirePointTransforms[3].position;
     }
 
