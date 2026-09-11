@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18a3649f7458b446833e6bb9f6ae069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomingEnemy
+  _type: 2
   _maxHealth: 100
   _moveSpeedScalar: 3
   _power: 5
