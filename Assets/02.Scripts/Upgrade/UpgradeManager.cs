@@ -36,7 +36,13 @@ public class UpgradeManager : MonoBehaviour
 
     public void LevelUp(UpgradeType type)
     {
-        _upgrades[(int)type].LevelUp();
+        Upgrade upgrade = _upgrades[(int)type];
+
+        if (ScoreManager.Instance.Score < upgrade.Cost) return;
+
+        ScoreManager.Instance.SpendScore(upgrade.Cost);
+
+        upgrade.LevelUp();
 
         RefreshUI();
     }

@@ -601,8 +601,8 @@ MonoBehaviour:
     _increaseCost: 1.3
     _level: 1
   - _name: AS
-    _defaultValue: 0.05
-    _increaseValue: 0.05
+    _defaultValue: 0.02
+    _increaseValue: 0.02
     _defaultCost: 1000
     _increaseCost: 1.2
     _level: 1

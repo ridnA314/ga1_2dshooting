@@ -70,7 +70,7 @@ public class PlayerMove : MonoBehaviour
 
         KeyCode accelerationKey = KeyCode.None;
         float finalSpeedScalar = _speedScalar + UpgradeManager.Instance.Get(UpgradeType.MoveSpeed);
-        Vector2 speed = direction * _speedScalar;
+        Vector2 speed = direction * finalSpeedScalar;
         speed = Accelate(speed, out KeyCode key);
 
         if (_timer >= 0.1f)

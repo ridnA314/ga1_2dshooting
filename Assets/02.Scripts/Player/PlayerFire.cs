@@ -9,7 +9,7 @@ public class PlayerFire : MonoBehaviour
     public Transform[] FirePointTransforms = new Transform[4];
 
     [SerializeField]
-    private float _attackCoolTime = 4.5f;
+    private float _attackCoolTime = 2.5f;
 
     public float AttackCoolTime => _attackCoolTime;
 
