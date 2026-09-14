@@ -9,7 +9,9 @@ public class PlayerFire : MonoBehaviour
     public Transform[] FirePointTransforms = new Transform[4];
 
     [SerializeField]
-    private float _attackCoolTime = 2.2f;
+    private float _attackSpeed = 0.2f;
+
+    private float _attackCoolTime = 4.5f;
 
     public float AttackCoolTime => _attackCoolTime;
 
@@ -27,7 +29,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += Time.deltaTime * (1 + _attackSpeed);
         if (_isAutoFire || Input.GetKeyDown(KeyCode.Space))
         {
             Fire();
@@ -82,10 +84,10 @@ public class PlayerFire : MonoBehaviour
 
     public void GrowUpAttackSpeed(float attackSpeedBonus, float attackSpeedLimit)
     {
-        _attackCoolTime -= attackSpeedBonus;
-        if (_attackCoolTime < attackSpeedLimit)
+        _attackSpeed += attackSpeedBonus;
+        if (_attackSpeed > attackSpeedLimit)
         {
-            _attackCoolTime = attackSpeedLimit;
+            _attackSpeed = attackSpeedLimit;
         }
     }
 }

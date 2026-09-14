@@ -3,10 +3,10 @@ using UnityEngine;
 public class AttackSpeedItem : Item
 {
     [SerializeField]
-    private float _attackSpeedBonus = .5f;
+    private float _attackSpeedBonus = .2f;
 
     [SerializeField]
-    private float _attackSpeedLimit = .2f;
+    private float _attackSpeedLimit = 2.2f;
 
     protected override void GiveEffect()
     {
