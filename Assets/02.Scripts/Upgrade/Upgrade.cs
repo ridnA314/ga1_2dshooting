@@ -6,21 +6,9 @@ public class Upgrade
 {
     //기획자가 채우는 속성
     [SerializeField]
-    private string _name;
+    private UpgradeInitialDataSO _initialData;
 
-    public string Name => _name;
-
-    [SerializeField]
-    private float _defaultValue;
-
-    [SerializeField]
-    private float _increaseValue;
-
-    [SerializeField]
-    private float _defaultCost;
-
-    [SerializeField]
-    private float _increaseCost;
+    public string Name => _initialData.Name;
 
     // 실행 중에 동적으로 바뀌는 속성
 
@@ -38,13 +26,10 @@ public class Upgrade
     private int _cost;
     public int Cost => _cost;
 
-    public Upgrade(int level, string name, float defaultValue, float increaseValue, float increaseCost)
+    public Upgrade(int level, UpgradeInitialDataSO initialData)
     {
         _level = level;
-        _name = name;
-        _defaultValue = defaultValue;
-        _increaseValue = increaseValue;
-        _increaseCost = increaseCost;
+        _initialData = initialData;
 
         Calculate();
     }
@@ -62,8 +47,8 @@ public class Upgrade
         // value : 기본값 + 레벨 * 증가량 벨류
         // Cost : 기본 점수 * 증가량 점수 ^ 래밸
 
-        _currentValue = _defaultValue + _level * _increaseValue;
-        _nextValue = _defaultValue + (_level + 1) * _increaseValue;
-        _cost = (int)(_defaultCost + Mathf.Pow(_increaseCost, _level));
+        _currentValue = _initialData.DefaultValue + _level * _initialData.IncreaseValue;
+        _nextValue = _initialData.DefaultValue + (_level + 1) * _initialData.IncreaseValue;
+        _cost = (int)(_initialData.DefaultCost + Mathf.Pow(_initialData.IncreaseCost, _level));
     }
 }
