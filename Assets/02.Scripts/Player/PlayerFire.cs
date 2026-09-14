@@ -70,6 +70,11 @@ public class PlayerFire : MonoBehaviour
         }
     }
 
+    public void SetAuto(bool auto)
+    {
+        _isAutoFire = auto;
+    }
+
     public void GrowUpPower(float powerBonus)
     {
         _powerBonus += powerBonus;
