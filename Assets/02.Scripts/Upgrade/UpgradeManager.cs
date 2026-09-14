@@ -24,6 +24,11 @@ public class UpgradeManager : MonoBehaviour
         _instance = this;
     }
 
+    public float Get(UpgradeType type)
+    {
+        return _upgrades[(int)type].CurrentValue;
+    }
+
     public void Initialize(UpgradeType type)
     {
         _upgrades[(int)type].Calculate();

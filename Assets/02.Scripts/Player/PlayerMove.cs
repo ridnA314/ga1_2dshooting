@@ -69,6 +69,7 @@ public class PlayerMove : MonoBehaviour
         _animator.SetInteger(ANIM_PARAM, (int)direction.x);
 
         KeyCode accelerationKey = KeyCode.None;
+        float finalSpeedScalar = _speedScalar + UpgradeManager.Instance.Get(UpgradeType.MoveSpeed);
         Vector2 speed = direction * _speedScalar;
         speed = Accelate(speed, out KeyCode key);
 

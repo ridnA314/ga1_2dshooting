@@ -9,8 +9,6 @@ public class PlayerFire : MonoBehaviour
     public Transform[] FirePointTransforms = new Transform[4];
 
     [SerializeField]
-    private float _attackSpeed = 0.2f;
-
     private float _attackCoolTime = 4.5f;
 
     public float AttackCoolTime => _attackCoolTime;
@@ -29,7 +27,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime * (1 + _attackSpeed);
+        _timer += Time.deltaTime;
         if (_isAutoFire || Input.GetKeyDown(KeyCode.Space))
         {
             Fire();
@@ -40,7 +38,13 @@ public class PlayerFire : MonoBehaviour
 
     private void Fire()
     {
-        if (_timer > _attackCoolTime)
+        float finalAttackCoolTime = _attackCoolTime - UpgradeManager.Instance.Get(UpgradeType.AttackSpeed);
+        if (finalAttackCoolTime < 0.05f)
+        {
+            finalAttackCoolTime = 0.05f;
+        }
+
+        if (_timer > finalAttackCoolTime)
         {
             //ToDo: Do not Direct creation -> Use Bullet in Pool
             Bullet bulletL = BulletPool.Instance.GetBullet(BulletType.Main, _powerBonus);
@@ -84,10 +88,10 @@ public class PlayerFire : MonoBehaviour
 
     public void GrowUpAttackSpeed(float attackSpeedBonus, float attackSpeedLimit)
     {
-        _attackSpeed += attackSpeedBonus;
-        if (_attackSpeed > attackSpeedLimit)
+        _attackCoolTime -= attackSpeedBonus;
+        if (_attackCoolTime < attackSpeedLimit)
         {
-            _attackSpeed = attackSpeedLimit;
+            _attackCoolTime = attackSpeedLimit;
         }
     }
 }

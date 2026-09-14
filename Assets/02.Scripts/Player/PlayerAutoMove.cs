@@ -61,7 +61,8 @@ public class PlayerAutoMove : MonoBehaviour
 
         direction.Normalize();
 
-        Vector3 distance = direction * _speedScalar * Time.deltaTime;
+        float finalSpeedScalar = _speedScalar + UpgradeManager.Instance.Get(UpgradeType.MoveSpeed);
+        Vector3 distance = direction * finalSpeedScalar * Time.deltaTime;
 
         bool isOverStartX = transform.position.x + distance.x <= _cameraStartX;
         bool isOverEndX = transform.position.x + distance.x >= _cameraEndX;

@@ -601,8 +601,8 @@ MonoBehaviour:
     _increaseCost: 1.3
     _level: 1
   - _name: AS
-    _defaultValue: 0.1
-    _increaseValue: 0.1
+    _defaultValue: 0.05
+    _increaseValue: 0.05
     _defaultCost: 1000
     _increaseCost: 1.2
     _level: 1
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   - {fileID: 477747499}
   - {fileID: 1517149751}
   - {fileID: 31534194}
-  _attackSpeed: 0.2
+  _attackCoolTime: 4.5
 --- !u!50 &513437353
 Rigidbody2D:
   serializedVersion: 5
