@@ -84,7 +84,7 @@ public class UI_AutoButton : MonoBehaviour
 
         float time = _elapsedTime / BumpDuration;
         float curveValue = _bumpCurve.Evaluate(time);
-        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * BumpScale, curveValue);
+        transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * BumpScale, curveValue);
     }
 
     public void PlaySound()
