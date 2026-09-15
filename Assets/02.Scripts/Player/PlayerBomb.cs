@@ -22,7 +22,7 @@ public class PlayerBomb : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (SimpleInput.GetKeyDown(KeyCode.B))
         {
             ShootBomb();
         }
