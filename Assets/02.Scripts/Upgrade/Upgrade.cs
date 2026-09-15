@@ -26,17 +26,16 @@ public class Upgrade
     private int _cost;
     public int Cost => _cost;
 
-    public Upgrade(int level, UpgradeInitialDataSO initialData)
+    public void LevelUp()
     {
-        _level = level;
-        _initialData = initialData;
+        _level += 1;
 
         Calculate();
     }
 
-    public void LevelUp()
+    public void SetLevel(int level)
     {
-        _level += 1;
+        _level = level;
 
         Calculate();
     }

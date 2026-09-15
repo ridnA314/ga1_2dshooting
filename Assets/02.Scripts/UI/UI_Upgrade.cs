@@ -22,7 +22,6 @@ public class UI_Upgrade : MonoBehaviour
     private void Start()
     {
         UpgradeManager.Instance.Initialize(_type);
-        Refresh();
     }
 
     public void OnClick()
