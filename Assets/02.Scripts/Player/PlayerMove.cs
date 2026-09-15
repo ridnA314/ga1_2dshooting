@@ -61,8 +61,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 GetSpeed()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        float h = SimpleInput.GetAxisRaw("Horizontal");
+        float v = SimpleInput.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(h, v).normalized;
 
