@@ -9,6 +9,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private EnemySpawnDataTableSO _spawnDataTable;
 
+    [SerializeField]
+    private EnemyBalanceDataTableSO _balanceDataTable;
+
     private float _timer = 2f;
 
     [Header("Item Drop Table")]
@@ -65,9 +68,26 @@ public class EnemySpawner : MonoBehaviour
                     selectedType = selectedEnemyData.Type;
                     enemy = EnemyPool.Instance.GetEnemy(selectedType, _playerTransform, _itemDropDataTable);
                     enemy.transform.position = transform.position;
+                    enemy.SetHealthBalance(GetHealthMultiplier());
                     break;
                 }
             }
         }
+    }
+
+    private float GetHealthMultiplier()
+    {
+        int bestScore = ScoreManager.Instance.BestScore;
+        float multiplier = 1f;
+
+        for (int i = 0; i < _balanceDataTable.Datas.Length; i++)
+        {
+            if (bestScore >= _balanceDataTable.Datas[i].RequiredScore)
+            {
+                multiplier = _balanceDataTable.Datas[i].HealthMultiplier;
+            }
+        }
+
+        return multiplier;
     }
 }

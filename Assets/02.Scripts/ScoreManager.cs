@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance => _instance;
 
     private int _bestScore;
+    public int BestScore => _bestScore;
     private int _currrentScore = 0;
     public int Score => _currrentScore;
 

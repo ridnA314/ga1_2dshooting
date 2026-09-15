@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _spawnInterval: 6
   _spawnDataTable: {fileID: 11400000, guid: 2c9672c957ba7f84b9c3846a012513d9, type: 2}
+  _balanceDataTable: {fileID: 11400000, guid: 433448d7199fee348bdcdf6704fdb779, type: 2}
   _itemDropDataTable: {fileID: 11400000, guid: c3f1da48039506543b8b74490bf9873a, type: 2}
   _playerTransform: {fileID: 0}

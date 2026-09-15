@@ -12,13 +12,16 @@ public abstract class Enemy : MonoBehaviour
 
     public EnemyType Type => _type;
 
-    private float _health;
-    public float Health => _health;
+    [SerializeField]
+    private int _baseHealth;
+
+    private int _health;
+    public int Health => _health;
 
     [SerializeField]
-    private float _maxHealth = 100f;
+    private int _maxHealth = 100;
 
-    public float MaxHealth => _maxHealth;
+    public int MaxHealth => _maxHealth;
 
     [SerializeField]
     protected float _moveSpeedScalar;
@@ -44,12 +47,23 @@ public abstract class Enemy : MonoBehaviour
 
     private void Start()
     {
-        _health = _maxHealth;
+        RefreshHealth();
     }
 
     private void Update()
     {
         Move();
+    }
+
+    public void SetHealthBalance(float multiple)
+    {
+        _maxHealth = (int)(_baseHealth * multiple);
+        RefreshHealth();
+    }
+
+    public void RefreshHealth()
+    {
+        _health = _maxHealth;
     }
 
     public void OnSpawn(Transform playerTransform, ItemDropDataTableSO itemDropDataTable)
@@ -72,7 +86,7 @@ public abstract class Enemy : MonoBehaviour
     {
         _damgedAudioSource.Play();
         _animator.SetTrigger(ANIM_PARAM);
-        _health -= damage;
+        _health -= (int)damage;
         if (_health <= 0)
         {
             SpawnDeathEffect();

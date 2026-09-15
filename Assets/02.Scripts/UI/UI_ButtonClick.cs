@@ -10,7 +10,7 @@ public class UI_ButtonClick : MonoBehaviour
     [SerializeField]
     private AnimationCurve _bumpCurve;
 
-    private float _currentScale = 1.0f;
+    //private float _currentScale = 1.0f;
     private float _elapsedTime = 0f;
     private bool _isBumping = false;
     private const float BumpDuration = 0.3f;

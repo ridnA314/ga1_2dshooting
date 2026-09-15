@@ -1085,7 +1085,7 @@ MonoBehaviour:
   - {fileID: 477747499}
   - {fileID: 1517149751}
   - {fileID: 31534194}
-  _attackCoolTime: 4.5
+  _attackCoolTime: 2.5
 --- !u!50 &513437353
 Rigidbody2D:
   serializedVersion: 5
