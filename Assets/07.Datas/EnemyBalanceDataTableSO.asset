@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyBalanceDataTableSO
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBalanceDataTableSO
   Datas:
-  - RequiredScore: 1000
-    HealthMultiplier: 1
+  - RequiredScore: 2000
+    HealthMultiplier: 1.1
   - RequiredScore: 5000
     HealthMultiplier: 1.2
   - RequiredScore: 10000
