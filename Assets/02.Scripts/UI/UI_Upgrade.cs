@@ -32,6 +32,7 @@ public class UI_Upgrade : MonoBehaviour
     public void Refresh()
     {
         Upgrade upgrade = UpgradeManager.Instance.Upgrades[(int)_type];
+        upgrade.Calculate();
 
         _titleText.text = $"{upgrade.Name} Lv.{upgrade.Level}";
         _valueText.text = $"{upgrade.CurrentValue}->{upgrade.NextValue}";

@@ -13,7 +13,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField]
     private UI_Upgrade[] _uiUpgrades;
 
-    private const string SaveKey = "Upgrade.{0}.Level";
+    private const string UpgradeSaveKey = "UpgradeSaveData";
 
     private void Awake()
     {
@@ -72,20 +72,29 @@ public class UpgradeManager : MonoBehaviour
     {
         // Only save meaningful data
         // Only save level
+
+        UpgradeSaveData saveData = new UpgradeSaveData(_upgrades.Length);
         for (int i = 0; i < _upgrades.Length; i++)
         {
-            PlayerPrefs.SetInt(string.Format(SaveKey, i), _upgrades[i].Level);
+            saveData.Name[i] = _upgrades[i].Name;
+            saveData.Level[i] = _upgrades[i].Level;
         }
 
+        string json = JsonUtility.ToJson(saveData);
+        PlayerPrefs.SetString(UpgradeSaveKey, json);
         PlayerPrefs.Save();
     }
 
     private void Load()
     {
+        if (!PlayerPrefs.HasKey(UpgradeSaveKey)) return;
+
+        string json = PlayerPrefs.GetString(UpgradeSaveKey, string.Empty);
+        UpgradeSaveData saveData = JsonUtility.FromJson<UpgradeSaveData>(json);
         for (int i = 0; i < _upgrades.Length; i++)
         {
-            int level = PlayerPrefs.GetInt(string.Format(SaveKey, i), 1);
-            _upgrades[i].SetLevel(level);
+            Debug.Log($"complete loading {saveData.Name[i]}");
+            _upgrades[i].SetLevel(saveData.Level[i]);
         }
     }
 }
