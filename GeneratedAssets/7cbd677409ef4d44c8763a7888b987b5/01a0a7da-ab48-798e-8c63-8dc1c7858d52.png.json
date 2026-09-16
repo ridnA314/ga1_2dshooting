@@ -1,0 +1,31 @@
+{
+    "asset": "7cbd677409ef4d44c8763a7888b987b5",
+    "fileName": "01a0a7da-ab48-798e-8c63-8dc1c7858d52.png",
+    "prompt": "Mobile casual arcade shooting game UI icon, glossy rounded-rectangle button badge with bright neon green glowing border, dark blue-grey inner plate, bold 3D golden yellow text 'AUTO ON', vibrant high polish game UI element, isolated on pure white background",
+    "negativePrompt": "",
+    "model": "game-ui-essentials-2",
+    "modelName": "Game UI Essentials 2.0",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "asset": "7cbd677409ef4d44c8763a7888b987b5",
+    "fileName": "01a0a7dc-cacc-7d3c-b0ed-b00cc1575456.jpg",
+    "prompt": "Change the text from 'AUTO OFF' to 'AUTO ON'. Change the outer grey border to a vibrant glowing neon green border. Change the text color from silver-grey to vibrant 3D bright yellow-orange with bold outlines. Keep the exact same button frame shape, silhouette, bevels, inner navy panel, and casual game UI design.",
+    "negativePrompt": "",
+    "model": "seedream-4-5",
+    "modelName": "Seedream 4.5",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "7cbd677409ef4d44c8763a7888b987b5",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}

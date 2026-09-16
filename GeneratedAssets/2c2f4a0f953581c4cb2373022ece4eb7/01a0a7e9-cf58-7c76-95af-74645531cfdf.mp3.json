@@ -1,0 +1,15 @@
+{
+    "asset": "2c2f4a0f953581c4cb2373022ece4eb7",
+    "fileName": "01a0a7e9-cf58-7c76-95af-74645531cfdf.mp3",
+    "prompt": "retro 16-bit arcade 2D space shooter upbeat chiptune electronic synthesizer background music, fast-paced energetic catchy melodic gaming soundtrack",
+    "negativePrompt": "",
+    "model": "google-lyria-3-clip",
+    "modelName": "Google Lyria 3 Clip",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false,
+    "voice": ""
+}

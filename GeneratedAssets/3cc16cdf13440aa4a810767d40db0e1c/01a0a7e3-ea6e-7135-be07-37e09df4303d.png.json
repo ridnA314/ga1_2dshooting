@@ -1,0 +1,31 @@
+{
+    "asset": "3cc16cdf13440aa4a810767d40db0e1c",
+    "fileName": "01a0a7e3-ea6e-7135-be07-37e09df4303d.png",
+    "prompt": "cute retro pixel art game UI square button icon for AUTO mode OFF, featuring a cute sleeping robot face with sleepy or inactive expression and dim gray/red power indicator light, clean pixel art edges, muted colors, white background",
+    "negativePrompt": "",
+    "model": "gpt-image-1",
+    "modelName": "GPT Image 1",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}

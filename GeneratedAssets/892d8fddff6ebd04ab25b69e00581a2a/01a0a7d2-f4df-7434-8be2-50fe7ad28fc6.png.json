@@ -1,0 +1,31 @@
+{
+    "asset": "892d8fddff6ebd04ab25b69e00581a2a",
+    "fileName": "01a0a7d2-f4df-7434-8be2-50fe7ad28fc6.png",
+    "prompt": "Casual mobile shooting game UI button, rounded rectangle frame with vibrant glowing green and cyan neon border, bold yellow text 'AUTO ON', high polish arcade 2D game UI element, isolated on pure white background",
+    "negativePrompt": "",
+    "model": "game-ui-essentials-2",
+    "modelName": "Game UI Essentials 2.0",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "asset": "9573b464e4f091144933c1ad087eefbb",
+    "fileName": "01a0a7d6-5120-78e2-a224-303ffc5b9457.png",
+    "prompt": "Matching square rounded-rectangle button matching the frame and silhouette of reference image, inactive state, grey metallic frame without glow, bold text with 'AUTO' stacked above 'OFF' in silver-grey lettering, high polish arcade 2D UI button, isolated on pure white background",
+    "negativePrompt": "",
+    "model": "game-ui-essentials-2",
+    "modelName": "Game UI Essentials 2.0",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": [
+            {
+                "doodleReferenceType": 7,
+                "doodle": [],
+                "label": "Image",
+                "strength": 0.25,
+                "invertStrength": false,
+                "assetReferenceGuid": "892d8fddff6ebd04ab25b69e00581a2a",
+                "unlabeledIndex": -1
+            }
+        ]
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}
